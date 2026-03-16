@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Receta completa del Verdadero Ramen Japonés - Aprende a preparar este plato tradicional desde el caldo hasta los toppings. Guía paso a paso con ingredientes y técnicas profesionales.">
+    <meta name="keywords" content="ramen japonés, receta ramen, caldo ramen, tonkotsu, ramen casero, cocina japonesa, noodles">
+    <meta name="author" content="Christian Herencia">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="El Verdadero Ramen Japonés: Guía Completa | Sabor & Tradición">
+    <meta property="og:description" content="Aprende a preparar ramen auténtico japonés desde cero con esta guía completa">
+    <meta property="og:image" content="images/og-post-ramen.jpg">
+    <meta property="article:author" content="Christian Herencia">
+    <meta property="article:published_time" content="2026-03-12">
+    <meta property="article:section" content="Recetas">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="El Verdadero Ramen Japonés: Guía Completa">
+    <meta name="twitter:description" content="Aprende a preparar ramen auténtico japonés desde cero">
+    
+    <title>El Verdadero Ramen Japonés: Guía Completa | Sabor & Tradición</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Page Specific Styles -->
+    <style>
+        .post-header {
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%), url('images/post-ramen-hero.jpg') center/cover;
+            padding: 200px 0 100px;
+            text-align: center;
+            color: var(--color-white);
+        }
+        
+        .post-category {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .post-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+        }
+        
+        .post-meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--color-gray-light);
+        }
+        
+        .post-meta-item i {
+            color: var(--color-secondary);
+        }
+        
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--color-primary);
+            z-index: 1001;
+            transition: width var(--transition-fast);
+        }
+        
+        .post-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: var(--spacing-xl);
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .post-content-wrapper {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .post-featured-image {
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+        }
+        
+        .post-featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .post-body {
+            padding: var(--spacing-xl);
+        }
+        
+        .post-intro {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-xl);
+            border-bottom: 1px solid var(--color-light);
+        }
+        
+        .post-section {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .post-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 3px solid var(--color-primary);
+            display: inline-block;
+        }
+        
+        .post-section h3 {
+            font-size: 1.4rem;
+            margin: var(--spacing-lg) 0 var(--spacing-md);
+            color: var(--color-dark);
+        }
+        
+        .post-body p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.9;
+            color: var(--color-gray);
+        }
+        
+        .post-body ul,
+        .post-body ol {
+            margin-bottom: var(--spacing-md);
+            padding-left: var(--spacing-lg);
+        }
+        
+        .post-body li {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.8;
+            color: var(--color-gray);
+        }
+        
+        .post-body img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        /* Recipe Card */
+        .recipe-card {
+            background: var(--color-cream);
+            border: 2px solid var(--color-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .recipe-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+        
+        .recipe-title {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin: 0;
+        }
+        
+        .recipe-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .recipe-action-btn {
+            padding: 0.5rem 1rem;
+            background: var(--color-white);
+            border: 2px solid var(--color-primary);
+            border-radius: var(--radius-md);
+            color: var(--color-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .recipe-action-btn:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .recipe-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-md);
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+        }
+        
+        .recipe-info-item {
+            text-align: center;
+        }
+        
+        .recipe-info-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+        }
+        
+        .recipe-info-label {
+            font-size: 0.85rem;
+            color: var(--color-gray);
+        }
+        
+        /* Ingredients */
+        .ingredients-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .ingredient-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm);
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+        }
+        
+        .ingredient-checkbox {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .ingredient-item label {
+            cursor: pointer;
+            flex: 1;
+        }
+        
+        .ingredient-amount {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        /* Steps */
+        .recipe-steps {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .recipe-step {
+            display: flex;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .step-content h4 {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .step-content p {
+            color: var(--color-gray);
+            margin: 0;
+        }
+        
+        /* Tips Box */
+        .tips-box {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);
+            color: var(--color-dark);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .tips-box h3 {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            color: var(--color-dark);
+        }
+        
+        .tips-box ul {
+            padding-left: var(--spacing-lg);
+        }
+        
+        .tips-box li {
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-dark);
+        }
+        
+        /* Share Section */
+        .share-section {
+            padding: var(--spacing-lg);
+            background: var(--color-light);
+            border-radius: var(--radius-lg);
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .share-section h3 {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .share-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+        
+        .share-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            color: var(--color-white);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            transition: all var(--transition-fast);
+        }
+        
+        .share-btn.facebook { background: #1877F2; }
+        .share-btn.twitter { background: #1DA1F2; }
+        .share-btn.whatsapp { background: #25D366; }
+        .share-btn.pinterest { background: #E60023; }
+        .share-btn.linkedin { background: #0A66C2; }
+        
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Tags */
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-lg);
+            border-top: 1px solid var(--color-light);
+        }
+        
+        .post-tag {
+            padding: 0.4rem 1rem;
+            background: var(--color-light);
+            color: var(--color-gray);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .post-tag:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        /* Author Box */
+        .author-box {
+            display: flex;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-xl);
+            background: var(--color-cream);
+            border-radius: var(--radius-lg);
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .author-image {
+            width: 100px;
+            height: 100px;
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h3 {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .author-info p {
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .author-social {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .author-social a {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-white);
+            border-radius: var(--radius-full);
+            color: var(--color-dark);
+            transition: all var(--transition-fast);
+        }
+        
+        .author-social a:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        /* Comments */
+        .comments-section {
+            margin-top: var(--spacing-xl);
+        }
+        
+        .comments-section h3 {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .comment-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .comment-item {
+            display: flex;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: var(--color-light);
+            border-radius: var(--radius-lg);
+        }
+        
+        .comment-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .comment-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .comment-content {
+            flex: 1;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+        
+        .comment-date {
+            font-size: 0.85rem;
+            color: var(--color-gray);
+        }
+        
+        .comment-text {
+            color: var(--color-gray);
+            line-height: 1.7;
+        }
+        
+        .comment-reply {
+            margin-top: var(--spacing-sm);
+            color: var(--color-primary);
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        /* Comment Form */
+        .comment-form {
+            background: var(--color-cream);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+        }
+        
+        .comment-form h4 {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .comment-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+        
+        .comment-form .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .comment-form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--color-light);
+            border-radius: var(--radius-md);
+            background: var(--color-white);
+        }
+        
+        .comment-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Related Posts */
+        .related-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--color-light);
+            border-radius: var(--radius-lg);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .related-section h3 {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .related-slider {
+            display: flex;
+            gap: var(--spacing-md);
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: var(--spacing-md);
+        }
+        
+        .related-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .related-slider::-webkit-scrollbar-track {
+            background: var(--color-light);
+            border-radius: var(--radius-md);
+        }
+        
+        .related-slider::-webkit-scrollbar-thumb {
+            background: var(--color-primary);
+            border-radius: var(--radius-md);
+        }
+        
+        .related-card {
+            min-width: 300px;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+        }
+        
+        .related-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .related-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .related-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .related-content {
+            padding: var(--spacing-md);
+        }
+        
+        .related-category {
+            font-size: 0.75rem;
+            color: var(--color-primary);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .related-title {
+            font-size: 1.1rem;
+            margin: var(--spacing-xs) 0;
+        }
+        
+        .related-title a {
+            color: var(--color-dark);
+            transition: color var(--transition-fast);
+        }
+        
+        .related-title a:hover {
+            color: var(--color-primary);
+        }
+        
+        /* Sidebar */
+        .post-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .sidebar-widget {
+            background: var(--color-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .sidebar-widget h3 {
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--color-primary);
+            display: inline-block;
+        }
+        
+        .toc-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .toc-list a {
+            padding: var(--spacing-sm);
+            color: var(--color-gray);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+            font-size: 0.9rem;
+        }
+        
+        .toc-list a:hover,
+        .toc-list a.active {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        @media (max-width: 992px) {
+            .post-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .post-sidebar {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .author-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-info {
+                text-align: center;
+            }
+            
+            .author-social {
+                justify-content: center;
+            }
+            
+            .comment-form .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .recipe-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Reading Progress -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="social-links">
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="contact-info">
+                        <a href="tel:+34612345678"><i class="fas fa-phone"></i> +34 612 345 678</a>
+                        <a href="mailto:info@saborytradicion.com"><i class="fas fa-envelope"></i> info@saborytradicion.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"><i class="fas fa-utensils"></i></span>
+                        <div class="logo-text">
+                            <span class="logo-main">Sabor & Tradición</span>
+                            <span class="logo-sub">Gastronomía Mundial</span>
+                        </div>
+                    </a>
+                    
+                    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html" class="nav-link">Inicio</a></li>
+                        <li><a href="somos.html" class="nav-link">Somos</a></li>
+                        <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                        <li><a href="portafolio.html" class="nav-link">Portafolio</a></li>
+                        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                    </ul>
+                    
+                    <div class="nav-actions">
+                        <div class="search-box">
+                            <input type="text" placeholder="Buscar recetas..." id="searchInput">
+                            <button type="submit" class="search-btn" aria-label="Buscar">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <a href="contacto.html" class="btn btn-primary">Suscríbete</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Post Header -->
+        <section class="post-header">
+            <div class="container">
+                <span class="post-category">Recetas</span>
+                <h1 class="post-title">El Verdadero Ramen Japonés: Guía Completa para Prepararlo en Casa</h1>
+                <div class="post-meta">
+                    <div class="post-meta-item">
+                        <i class="fas fa-user"></i>
+                        <span>Christian Herencia</span>
+                    </div>
+                    <div class="post-meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>12 Marzo 2026</span>
+                    </div>
+                    <div class="post-meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span id="readTime">8 min de lectura</span>
+                    </div>
+                    <div class="post-meta-item">
+                        <i class="fas fa-eye"></i>
+                        <span>2,453 vistas</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Post Container -->
+        <section class="container">
+            <div class="post-container">
+                <!-- Post Content -->
+                <div class="post-content-wrapper">
+                    <div class="post-featured-image">
+                        <img src="images/post-ramen-featured.jpg" alt="Ramen japonés tradicional">
+                    </div>
+                    
+                    <div class="post-body">
+                        <div class="post-intro">
+                            <p>El ramen es mucho más que un simple plato de fideos: es una obra maestra de la cocina japonesa que requiere paciencia, técnica y pasión. En esta guía completa, te enseñaré todos los secretos para preparar un ramen auténtico como el que probarías en las mejores ramen-ya de Tokio.</p>
+                        </div>
+                        
+                        <!-- Recipe Card -->
+                        <div class="recipe-card">
+                            <div class="recipe-header">
+                                <h2 class="recipe-title"><i class="fas fa-utensils"></i> Receta de Ramen Tonkotsu</h2>
+                                <div class="recipe-actions">
+                                    <button class="recipe-action-btn" id="printRecipe">
+                                        <i class="fas fa-print"></i> Imprimir
+                                    </button>
+                                    <button class="recipe-action-btn" id="saveRecipe">
+                                        <i class="fas fa-bookmark"></i> Guardar
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="recipe-info">
+                                <div class="recipe-info-item">
+                                    <span class="recipe-info-value">4</span>
+                                    <span class="recipe-info-label">Raciones</span>
+                                </div>
+                                <div class="recipe-info-item">
+                                    <span class="recipe-info-value">8h</span>
+                                    <span class="recipe-info-label">Tiempo Total</span>
+                                </div>
+                                <div class="recipe-info-item">
+                                    <span class="recipe-info-value">45min</span>
+                                    <span class="recipe-info-label">Preparación</span>
+                                </div>
+                                <div class="recipe-info-item">
+                                    <span class="recipe-info-value">7h</span>
+                                    <span class="recipe-info-label">Cocción</span>
+                                </div>
+                                <div class="recipe-info-item">
+                                    <span class="recipe-info-value">Difícil</span>
+                                    <span class="recipe-info-label">Dificultad</span>
+                                </div>
+                            </div>
+                            
+                            <h3><i class="fas fa-shopping-basket"></i> Ingredientes</h3>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">
+                                    <input type="checkbox" class="ingredient-checkbox" id="ing1">
+                                    <label for="ing1"><span class="ingredient-amount">1kg</span> Huesos de cerdo (patas y cuello)</label>
+                                </div>
+                                <div class="ingredient-item">
+                                    <input type="checkbox" class="ingredient-checkbox" id="ing2">
+                                    <label for="ing2"><span class="ingredient-amount">500g</span> Panceta de cerdo</label>
+                                </div>
+                                <div class="ingredient-item">
+                                    <input type="checkbox" class="ingredient-checkbox" id="ing3">
+                                    <label for="ing3"><span class="ingredient-amount">400g</span> Fideos de ramen frescos</label>
+                                </div>
+                                <div class="ingredient-item">
+                                    <input type="checkbox" class="ingredient-checkbox" id="ing4">
+                                    <label for="ing4"><span class="ingredient-amount">4</span> Huevos</label>
+                                </div>
+                                <div class="ingredient-item">
+                                    <input type="checkbox" class="ingredient-checkbox" id="ing5">
+                                    <label for="ing5"><span class="ingredient-amount">1</span> Cebolla grande</label>
+                                </div>
+                                <div class="ingredient-item">
+                                    <input type="checkbox" class="ingredient-checkbox" id="ing6">
+                                    <label for="ing6"><span class="ingredient-amount">4</span> Dientes de ajo</label>
+                                </div>
+                                <div class="ingredient-item">
+                                    <input type="checkbox" class="ingredient-checkbox" id="ing7">
+                                    <label for="ing7"><span class="ingredient-amount">5cm</span> Jengibre fresco</label>
+                                </div>
+                                <div class="ingredient-item">
+                                    <input type="checkbox" class="ingredient-checkbox" id="ing8">
+                                    <label for="ing8"><span class="ingredient-amount">3 cdas</span> Salsa de soja</label>
+                                </div>
+                                <div class="ingredient-item">
+                                    <input type="checkbox" class="ingredient-checkbox" id="ing9">
+                                    <label for="ing9"><span class="ingredient-amount">2 cdas</span> Mirin</label>
+                                </div>
+                                <div class="ingredient-item">
+                                    <input type="checkbox" class="ingredient-checkbox" id="ing10">
+                                    <label for="ing10"><span class="ingredient-amount">2 cdas</span> Sake</label>
+                                </div>
+                                <div class="ingredient-item">
+                                    <input type="checkbox" class="ingredient-checkbox" id="ing11">
+                                    <label for="ing11"><span class="ingredient-amount">4</span> Cebollinos</label>
+                                </div>
+                                <div class="ingredient-item">
+                                    <input type="checkbox" class="ingredient-checkbox" id="ing12">
+                                    <label for="ing12"><span class="ingredient-amount">Al gusto</span> Nori (alga seca)</label>
+                                </div>
+                            </div>
+                            
+                            <h3><i class="fas fa-list-ol"></i> Instrucciones Paso a Paso</h3>
+                            <div class="recipe-steps">
+                                <div class="recipe-step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Preparar los huesos</h4>
+                                        <p>Lava los huesos de cerdo bajo agua fría y colócalos en una olla grande. Cubre con agua y lleva a ebullición durante 5 minutos. Desecha esta agua y enjuaga los huesos nuevamente. Este paso es crucial para obtener un caldo limpio.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="recipe-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Cocinar el caldo</h4>
+                                        <p>Coloca los huesos limpios en una olla limpia con 4 litros de agua. Añade la cebolla cortada por la mitad, el ajo aplastado y el jengibre en rodajas. Hierve a fuego alto durante 1 hora, luego reduce a fuego medio-bajo y cocina durante 6-7 horas. El caldo debe mantenerse en ebullición suave para extraer todo el colágeno.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="recipe-step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Preparar los huevos ajitsuke</h4>
+                                        <p>Cuece los huevos durante 6-7 minutos para obtener una yema cremosa. Enfríalos en agua con hielo, pélalos y marina en una mezcla de soja, mirin y sake durante al menos 4 horas (idealmente toda la noche).</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="recipe-step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Cocinar la panceta (Chashu)</h4>
+                                        <p>Ata la panceta con hilo de cocina para mantener su forma. Dórala en una sartén y luego cocínala a fuego lento en una mezcla de soja, sake, mirin, azúcar, ajo y jengibre durante 2 horas. Deja enfriar en el líquido de cocción.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="recipe-step">
+                                    <div class="step-number">5</div>
+                                    <div class="step-content">
+                                        <h4>Preparar el tare (sazonador)</h4>
+                                        <p>Mezcla 3 partes de salsa de soja con 1 parte de mirin y 1 parte de sake. Calienta ligeramente para evaporar el alcohol. Esta será la base de sabor de tu ramen.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="recipe-step">
+                                    <div class="step-number">6</div>
+                                    <div class="step-content">
+                                        <h4>Cocinar los fideos</h4>
+                                        <p>Cuece los fideos de ramen según las instrucciones del paquete (generalmente 2-3 minutos). Escúrrelos bien y resérvalos. Los fideos deben cocinarse justo antes de servir para mantener su textura.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="recipe-step">
+                                    <div class="step-number">7</div>
+                                    <div class="step-content">
+                                        <h4>Montar el ramen</h4>
+                                        <p>En cada bowl, añade 2 cucharadas de tare. Cubre con el caldo caliente colado. Agrega los fideos, 2-3 rodajas de chashu, medio huevo ajitsuke, cebollino picado, nori y cualquier otro topping que desees.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tips Box -->
+                        <div class="tips-box">
+                            <h3><i class="fas fa-lightbulb"></i> Consejos del Chef</h3>
+                            <ul>
+                                <li><strong>El secreto del caldo cremoso:</strong> Mantén el caldo en ebullición constante para que la grasa se emulsione y cree esa textura cremosa característica del tonkotsu.</li>
+                                <li><strong>Agua blanda:</strong> Si es posible, usa agua blanda para el caldo. El agua dura puede afectar el sabor final.</li>
+                                <li><strong>Fideos frescos:</strong> Los fideos frescos de ramen tienen una textura muy superior a los secos. Busca tiendas asiáticas en tu ciudad.</li>
+                                <li><strong>Prepara con anticipación:</strong> El caldo, el chashu y los huevos se pueden preparar con 2-3 días de antelación.</li>
+                                <li><strong>Temperatura de servicio:</strong> Sirve el ramen inmediatamente después de montarlo. Los fideos siguen cocinándose en el caldo caliente.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Post Content Continued -->
+                        <div class="post-section">
+                            <h2>La Historia del Ramen</h2>
+                            <p>Aunque el ramen se considera un plato japonés, sus orígenes se remontan a China. Fue introducido en Japón a finales del siglo XIX y principios del XX, y desde entonces ha evolucionado hasta convertirse en un símbolo de la cultura culinaria japonesa.</p>
+                            <p>La palabra "ramen" proviene del chino "lamian", que significa "fideos estirados". Durante la ocupación estadounidense después de la Segunda Guerra Mundial, la harina de trigo estadounidense inundó Japón, y el ramen se convirtió en un plato popular y accesible para las masas.</p>
+                        </div>
+                        
+                        <div class="post-section">
+                            <h2>Tipos de Ramen</h2>
+                            <p>Existen cuatro tipos principales de ramen, clasificados según su base de sabor:</p>
+                            <ul>
+                                <li><strong>Tonkotsu:</strong> Caldo de huesos de cerdo, cremoso y rico. Originario de Fukuoka.</li>
+                                <li><strong>Shoyu:</strong> Base de salsa de soja, claro y sabroso. Típico de Tokio.</li>
+                                <li><strong>Miso:</strong> Con pasta de miso, originario de Hokkaido. Ideal para climas fríos.</li>
+                                <li><strong>Shio:</strong> Sazonado con sal, el más antiguo y ligero de todos.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Share Section -->
+                        <div class="share-section">
+                            <h3><i class="fas fa-share-alt"></i> Comparte esta receta</h3>
+                            <div class="share-buttons">
+                                <a href="#" class="share-btn facebook" data-platform="facebook">
+                                    <i class="fab fa-facebook-f"></i> Facebook
+                                </a>
+                                <a href="#" class="share-btn twitter" data-platform="twitter">
+                                    <i class="fab fa-twitter"></i> Twitter
+                                </a>
+                                <a href="#" class="share-btn whatsapp" data-platform="whatsapp">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>
+                                <a href="#" class="share-btn pinterest" data-platform="pinterest">
+                                    <i class="fab fa-pinterest"></i> Pinterest
+                                </a>
+                                <a href="#" class="share-btn linkedin" data-platform="linkedin">
+                                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Tags -->
+                        <div class="post-tags">
+                            <a href="#" class="post-tag">#ramen</a>
+                            <a href="#" class="post-tag">#cocinaJaponesa</a>
+                            <a href="#" class="post-tag">#fideos</a>
+                            <a href="#" class="post-tag">#tonkotsu</a>
+                            <a href="#" class="post-tag">#recetasInternacionales</a>
+                            <a href="#" class="post-tag">#comidaAsiatica</a>
+                            <a href="#" class="post-tag">#caldo</a>
+                        </div>
+                        
+                        <!-- Author Box -->
+                        <div class="author-box">
+                            <div class="author-image">
+                                <img src="images/author-christian.jpg" alt="Christian Herencia">
+                            </div>
+                            <div class="author-info">
+                                <h3>Christian Herencia</h3>
+                                <p class="author-role">Food Blogger & Chef</p>
+                                <p>Apasionado de la gastronomía mundial con más de 10 años explorando cocinas, ingredientes y tradiciones culinarias. Creador de Sabor & Tradición y del canal de YouTube con más de 500K suscriptores.</p>
+                                <div class="author-social">
+                                    <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Comments Section -->
+                        <div class="comments-section">
+                            <h3><i class="fas fa-comments"></i> Comentarios (5)</h3>
+                            
+                            <div class="comment-list">
+                                <div class="comment-item">
+                                    <div class="comment-avatar">
+                                        <img src="images/comment-user-1.jpg" alt="María González">
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <span class="comment-author">María González</span>
+                                            <span class="comment-date">10 Marzo 2026</span>
+                                        </div>
+                                        <p class="comment-text">¡Increíble receta! La hice el fin de semana y quedó espectacular. El caldo me tomó un poco más de tiempo pero valió totalmente la pena. Definitivamente la volveré a hacer.</p>
+                                        <span class="comment-reply"><i class="fas fa-reply"></i> Responder</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="comment-item">
+                                    <div class="comment-avatar">
+                                        <img src="images/comment-user-2.jpg" alt="Carlos Rodríguez">
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <span class="comment-author">Carlos Rodríguez</span>
+                                            <span class="comment-date">8 Marzo 2026</span>
+                                        </div>
+                                        <p class="comment-text">Christian, ¿dónde puedo conseguir fideos de ramen frescos en Madrid? He buscado en varias tiendas asiáticas pero no encuentro.</p>
+                                        <span class="comment-reply"><i class="fas fa-reply"></i> Responder</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="comment-item">
+                                    <div class="comment-avatar">
+                                        <img src="images/comment-user-3.jpg" alt="Ana Martínez">
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <span class="comment-author">Ana Martínez</span>
+                                            <span class="comment-date">5 Marzo 2026</span>
+                                        </div>
+                                        <p class="comment-text">Los consejos del chef son oro puro. Nunca había logrado un caldo tan cremoso hasta que seguí tu técnica de ebullición constante. ¡Gracias por compartir!</p>
+                                        <span class="comment-reply"><i class="fas fa-reply"></i> Responder</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Comment Form -->
+                            <div class="comment-form">
+                                <h4>Deja un comentario</h4>
+                                <form id="commentForm">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="commentName">Nombre *</label>
+                                            <input type="text" id="commentName" name="name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="commentEmail">Email *</label>
+                                            <input type="email" id="commentEmail" name="email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="commentText">Comentario *</label>
+                                        <textarea id="commentText" name="comment" placeholder="Cuéntanos tu experiencia con esta receta..." required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane"></i> Enviar Comentario
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Related Posts -->
+                        <div class="related-section">
+                            <h3><i class="fas fa-newspaper"></i> Recetas Relacionadas</h3>
+                            <div class="related-slider">
+                                <div class="related-card">
+                                    <div class="related-image">
+                                        <img src="images/related-udon.jpg" alt="Udon japonés">
+                                    </div>
+                                    <div class="related-content">
+                                        <span class="related-category">Recetas</span>
+                                        <h4 class="related-title"><a href="post.html">Udon Japonés: Fideos Gruesos en Caldo Dashi</a></h4>
+                                    </div>
+                                </div>
+                                
+                                <div class="related-card">
+                                    <div class="related-image">
+                                        <img src="images/related-pho.jpg" alt="Pho vietnamita">
+                                    </div>
+                                    <div class="related-content">
+                                        <span class="related-category">Recetas</span>
+                                        <h4 class="related-title"><a href="post.html">Pho Vietnamita: El Caldo Aromático de Hanói</a></h4>
+                                    </div>
+                                </div>
+                                
+                                <div class="related-card">
+                                    <div class="related-image">
+                                        <img src="images/related-pad-thai.jpg" alt="Pad Thai">
+                                    </div>
+                                    <div class="related-content">
+                                        <span class="related-category">Recetas</span>
+                                        <h4 class="related-title"><a href="post.html">Pad Thai Auténtico: El Clásico Tailandés</a></h4>
+                                    </div>
+                                </div>
+                                
+                                <div class="related-card">
+                                    <div class="related-image">
+                                        <img src="images/related-bibimbap.jpg" alt="Bibimbap coreano">
+                                    </div>
+                                    <div class="related-content">
+                                        <span class="related-category">Recetas</span>
+                                        <h4 class="related-title"><a href="post.html">Bibimbap Coreano: Arroz con Vegetales y Gochujang</a></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <aside class="post-sidebar">
+                    <!-- Table of Contents -->
+                    <div class="sidebar-widget">
+                        <h3><i class="fas fa-list"></i> Contenido</h3>
+                        <nav class="toc-list">
+                            <a href="#receta">Receta de Ramen Tonkotsu</a>
+                            <a href="#historia">La Historia del Ramen</a>
+                            <a href="#tipos">Tipos de Ramen</a>
+                            <a href="#consejos">Consejos del Chef</a>
+                            <a href="#comentarios">Comentarios</a>
+                        </nav>
+                    </div>
+                    
+                    <!-- Newsletter Widget -->
+                    <div class="sidebar-widget newsletter-widget" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); color: white;">
+                        <h3 style="color: white; border-bottom-color: rgba(255,255,255,0.3);"><i class="fas fa-envelope"></i> Newsletter</h3>
+                        <p style="opacity: 0.9;">Recibe recetas exclusivas cada semana</p>
+                        <form class="newsletter-widget-form" id="subscriptionForm">
+                            <input type="email" placeholder="Tu correo electrónico" required>
+                            <button type="submit">Suscribirme</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Popular Posts -->
+                    <div class="sidebar-widget">
+                        <h3><i class="fas fa-fire"></i> Populares</h3>
+                        <div class="popular-posts">
+                            <div class="popular-post">
+                                <div class="popular-post-image">
+                                    <img src="images/popular-pizza.jpg" alt="Pizza napolitana">
+                                </div>
+                                <div class="popular-post-content">
+                                    <h4><a href="post.html">Pizza Napolitana Auténtica</a></h4>
+                                    <div class="popular-post-meta">
+                                        <span><i class="fas fa-eye"></i> 15.2k</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popular-post">
+                                <div class="popular-post-image">
+                                    <img src="images/popular-ceviche.jpg" alt="Ceviche peruano">
+                                </div>
+                                <div class="popular-post-content">
+                                    <h4><a href="post.html">Ceviche Peruano: El Original</a></h4>
+                                    <div class="popular-post-meta">
+                                        <span><i class="fas fa-eye"></i> 12.8k</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popular-post">
+                                <div class="popular-post-image">
+                                    <img src="images/popular-croissant.jpg" alt="Croissant francés">
+                                </div>
+                                <div class="popular-post-content">
+                                    <h4><a href="post.html">Croissant Francés Perfecto</a></h4>
+                                    <div class="popular-post-meta">
+                                        <span><i class="fas fa-eye"></i> 11.5k</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <span class="logo-icon"><i class="fas fa-utensils"></i></span>
+                            <div class="logo-text">
+                                <span class="logo-main">Sabor & Tradición</span>
+                                <span class="logo-sub">Gastronomía Mundial</span>
+                            </div>
+                        </div>
+                        <p class="footer-description">
+                            Blog gastronómico dedicado a compartir recetas, tradiciones y secretos de la cocina mundial. Únete a nuestra comunidad de foodies.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Enlaces Rápidos</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="somos.html">Somos</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="portafolio.html">Portafolio</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Categorías</h4>
+                        <ul class="footer-links">
+                            <li><a href="blog.html?cat=recetas">Recetas</a></li>
+                            <li><a href="blog.html?cat=ingredientes">Ingredientes</a></li>
+                            <li><a href="blog.html?cat=tradicion">Tradiciones</a></li>
+                            <li><a href="blog.html?cat=tecnicas">Técnicas</a></li>
+                            <li><a href="blog.html?cat=cultura">Cultura</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contacto</h4>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-map-marker-alt"></i> Madrid, España</li>
+                            <li><a href="tel:+34612345678"><i class="fas fa-phone"></i> +34 612 345 678</a></li>
+                            <li><a href="tel:+34687654321"><i class="fas fa-mobile-alt"></i> +34 687 654 321</a></li>
+                            <li><a href="mailto:info@saborytradicion.com"><i class="fas fa-envelope"></i> info@saborytradicion.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        &copy; 2026 Sabor & Tradición. Todos los derechos reservados. | Autor: <a href="https://christian-freelance.us/" target="_blank">Christian Herencia</a>
+                    </p>
+                    <div class="footer-legal">
+                        <a href="privacidad.html">Política de Privacidad</a>
+                        <a href="cookies.html">Política de Cookies</a>
+                        <a href="aviso-legal.html">Aviso Legal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/34612345678" target="_blank" class="whatsapp-btn" aria-label="Contact via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

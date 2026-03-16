@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sabor & Tradición - Blog gastronómico sobre comida mundial, recetas tradicionales, ingredientes y preparación de platos. Descubre la magia de la gastronomía.">
+    <meta name="keywords" content="gastronomía, comida, recetas, cocina, ingredientes, platos tradicionales, food blogger, youtube comida">
+    <meta name="author" content="Christian Herencia">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sabor & Tradición | Blog Gastronómico">
+    <meta property="og:description" content="Descubre recetas, tradiciones y secretos de la gastronomía mundial">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://saborytradicion.com/">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sabor & Tradición | Blog Gastronómico">
+    <meta name="twitter:description" content="Descubre recetas, tradiciones y secretos de la gastronomía mundial">
+    
+    <title>Sabor & Tradición | Blog Gastronómico - Recetas, Ingredientes y Cultura Culinaria</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="social-links">
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="contact-info">
+                        <a href="tel:+34612345678"><i class="fas fa-phone"></i> +34 612 345 678</a>
+                        <a href="mailto:info@saborytradicion.com"><i class="fas fa-envelope"></i> info@saborytradicion.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"><i class="fas fa-utensils"></i></span>
+                        <div class="logo-text">
+                            <span class="logo-main">Sabor & Tradición</span>
+                            <span class="logo-sub">Gastronomía Mundial</span>
+                        </div>
+                    </a>
+                    
+                    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html" class="nav-link active">Inicio</a></li>
+                        <li><a href="somos.html" class="nav-link">Somos</a></li>
+                        <li><a href="blog.html" class="nav-link">Blog</a></li>
+                        <li><a href="portafolio.html" class="nav-link">Portafolio</a></li>
+                        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                    </ul>
+                    
+                    <div class="nav-actions">
+                        <div class="search-box">
+                            <input type="text" placeholder="Buscar recetas..." id="searchInput">
+                            <button type="submit" class="search-btn" aria-label="Buscar">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <a href="contacto.html" class="btn btn-primary">Suscríbete</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Carousel -->
+        <section class="hero-carousel" id="heroCarousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%), url('images/hero-paella.png');">
+                    <div class="carousel-content">
+                        <span class="carousel-category">Receta Destacada</span>
+                        <h1 class="carousel-title">La Auténtica Paella Valenciana</h1>
+                        <p class="carousel-description">Descubre los secretos de este plato emblemático español, transmitido de generación en generación</p>
+                        <div class="carousel-buttons">
+                            <a href="post.html" class="btn btn-primary">Ver Receta</a>
+                            <a href="blog.html" class="btn btn-outline">Explorar Más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%), url('images/hero-tacos.png');">
+                    <div class="carousel-content">
+                        <span class="carousel-category">Tradición Mexicana</span>
+                        <h1 class="carousel-title">Tacos Al Pastor: Historia y Sabor</h1>
+                        <p class="carousel-description">Un viaje culinario por los orígenes de uno de los platillos más icónicos de México</p>
+                        <div class="carousel-buttons">
+                            <a href="post.html" class="btn btn-primary">Ver Receta</a>
+                            <a href="blog.html" class="btn btn-outline">Explorar Más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%), url('images/hero-sushi.png');">
+                    <div class="carousel-content">
+                        <span class="carousel-category">Arte Japonés</span>
+                        <h1 class="carousel-title">El Arte del Sushi Tradicional</h1>
+                        <p class="carousel-description">Aprende la técnica milenaria japonesa para preparar sushi perfecto en casa</p>
+                        <div class="carousel-buttons">
+                            <a href="post.html" class="btn btn-primary">Ver Receta</a>
+                            <a href="blog.html" class="btn btn-outline">Explorar Más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%), url('images/hero-pasta.png');">
+                    <div class="carousel-content">
+                        <span class="carousel-category">Cocina Italiana</span>
+                        <h1 class="carousel-title">Pasta Fresca Hecha en Casa</h1>
+                        <p class="carousel-description">Domina el arte de la pasta italiana con ingredientes simples y técnica perfecta</p>
+                        <div class="carousel-buttons">
+                            <a href="post.html" class="btn btn-primary">Ver Receta</a>
+                            <a href="blog.html" class="btn btn-outline">Explorar Más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="carousel-btn prev" id="carouselPrev" aria-label="Previous slide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next" id="carouselNext" aria-label="Next slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <div class="carousel-indicators" id="carouselIndicators">
+                <button class="indicator active" data-slide="0" aria-label="Slide 1"></button>
+                <button class="indicator" data-slide="1" aria-label="Slide 2"></button>
+                <button class="indicator" data-slide="2" aria-label="Slide 3"></button>
+                <button class="indicator" data-slide="3" aria-label="Slide 4"></button>
+            </div>
+        </section>
+
+        <!-- Featured Categories -->
+        <section class="categories-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Explora por categorías</span>
+                    <h2 class="section-title">Nuestras Categorías</h2>
+                    <p class="section-description">Descubre una amplia variedad de contenido gastronómico organizado por temas</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <a href="blog.html?cat=recetas" class="category-card">
+                        <div class="category-image">
+                            <img src="images/cat-recetas.png" alt="Recetas tradicionales">
+                            <div class="category-overlay"></div>
+                        </div>
+                        <div class="category-content">
+                            <i class="fas fa-book-open"></i>
+                            <h3>Recetas</h3>
+                            <span>125 artículos</span>
+                        </div>
+                    </a>
+                    
+                    <a href="blog.html?cat=ingredientes" class="category-card">
+                        <div class="category-image">
+                            <img src="images/cat-ingredientes.png" alt="Ingredientes y especias">
+                            <div class="category-overlay"></div>
+                        </div>
+                        <div class="category-content">
+                            <i class="fas fa-pepper-hot"></i>
+                            <h3>Ingredientes</h3>
+                            <span>87 artículos</span>
+                        </div>
+                    </a>
+                    
+                    <a href="blog.html?cat=tradicion" class="category-card">
+                        <div class="category-image">
+                            <img src="images/cat-tradicion.png" alt="Tradiciones culinarias">
+                            <div class="category-overlay"></div>
+                        </div>
+                        <div class="category-content">
+                            <i class="fas fa-landmark"></i>
+                            <h3>Tradiciones</h3>
+                            <span>64 artículos</span>
+                        </div>
+                    </a>
+                    
+                    <a href="blog.html?cat=tecnicas" class="category-card">
+                        <div class="category-image">
+                            <img src="images/cat-tecnicas.png" alt="Técnicas de cocina">
+                            <div class="category-overlay"></div>
+                        </div>
+                        <div class="category-content">
+                            <i class="fas fa-fire"></i>
+                            <h3>Técnicas</h3>
+                            <span>93 artículos</span>
+                        </div>
+                    </a>
+                    
+                    <a href="blog.html?cat=cultura" class="category-card">
+                        <div class="category-image">
+                            <img src="images/cat-cultura.png" alt="Cultura gastronómica">
+                            <div class="category-overlay"></div>
+                        </div>
+                        <div class="category-content">
+                            <i class="fas fa-globe-americas"></i>
+                            <h3>Cultura</h3>
+                            <span>56 artículos</span>
+                        </div>
+                    </a>
+                    
+                    <a href="blog.html?cat=videos" class="category-card">
+                        <div class="category-image">
+                            <img src="images/cat-videos.png" alt="Videos y tutoriales">
+                            <div class="category-overlay"></div>
+                        </div>
+                        <div class="category-content">
+                            <i class="fas fa-play-circle"></i>
+                            <h3>Videos</h3>
+                            <span>42 artículos</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Articles -->
+        <section class="articles-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Últimas publicaciones</span>
+                    <h2 class="section-title">Artículos Recientes</h2>
+                    <p class="section-description">Mantente al día con nuestro contenido más fresco</p>
+                </div>
+                
+                <div class="articles-grid">
+                    <article class="article-card featured">
+                        <div class="article-image">
+                            <img src="images/article-ramen.png" alt="Ramen tradicional japonés">
+                            <span class="article-badge">Destacado</span>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category"><i class="fas fa-tag"></i> Recetas</span>
+                                <span class="article-date"><i class="fas fa-calendar"></i> 12 Mar 2026</span>
+                            </div>
+                            <h3 class="article-title">El Verdadero Ramen Japonés: Guía Completa</h3>
+                            <p class="article-excerpt">Descubre los secretos para preparar un ramen auténtico desde el caldo hasta los toppings perfectos...</p>
+                            <div class="article-footer">
+                                <div class="article-author">
+                                    <img src="images/author-christian.jpg" alt="Christian Herencia">
+                                    <span>Christian Herencia</span>
+                                </div>
+                                <div class="article-stats">
+                                    <span><i class="fas fa-clock"></i> 8 min</span>
+                                    <span><i class="fas fa-eye"></i> 2.4k</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="images/article-mole.png" alt="Mole poblano mexicano">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category"><i class="fas fa-tag"></i> Tradiciones</span>
+                                <span class="article-date"><i class="fas fa-calendar"></i> 10 Mar 2026</span>
+                            </div>
+                            <h3 class="article-title">Mole Poblano: La Receta Ancestral</h3>
+                            <p class="article-excerpt">El mole es mucho más que una salsa; es una tradición que une generaciones...</p>
+                            <div class="article-footer">
+                                <div class="article-author">
+                                    <img src="images/author-christian.jpg" alt="Christian Herencia">
+                                    <span>Christian Herencia</span>
+                                </div>
+                                <div class="article-stats">
+                                    <span><i class="fas fa-clock"></i> 12 min</span>
+                                    <span><i class="fas fa-eye"></i> 1.8k</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="images/article-pan.png" alt="Pan artesanal casero">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category"><i class="fas fa-tag"></i> Técnicas</span>
+                                <span class="article-date"><i class="fas fa-calendar"></i> 08 Mar 2026</span>
+                            </div>
+                            <h3 class="article-title">Pan Artesanal: Fermentación Perfecta</h3>
+                            <p class="article-excerpt">Aprende a hacer pan con masa madre y consigue una miga perfecta...</p>
+                            <div class="article-footer">
+                                <div class="article-author">
+                                    <img src="images/author-christian.jpg" alt="Christian Herencia">
+                                    <span>Christian Herencia</span>
+                                </div>
+                                <div class="article-stats">
+                                    <span><i class="fas fa-clock"></i> 15 min</span>
+                                    <span><i class="fas fa-eye"></i> 3.2k</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="images/article-especias.png" alt="Especias y condimentos">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="article-category"><i class="fas fa-tag"></i> Ingredientes</span>
+                                <span class="article-date"><i class="fas fa-calendar"></i> 05 Mar 2026</span>
+                            </div>
+                            <h3 class="article-title">Guía de Especias: Sabores del Mundo</h3>
+                            <p class="article-excerpt">Conoce las especias más utilizadas en la cocina internacional...</p>
+                            <div class="article-footer">
+                                <div class="article-author">
+                                    <img src="images/author-christian.jpg" alt="Christian Herencia">
+                                    <span>Christian Herencia</span>
+                                </div>
+                                <div class="article-stats">
+                                    <span><i class="fas fa-clock"></i> 6 min</span>
+                                    <span><i class="fas fa-eye"></i> 1.5k</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="articles-cta">
+                    <a href="blog.html" class="btn btn-primary">Ver Todos los Artículos <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular/Trending -->
+        <section class="trending-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Lo más leído</span>
+                    <h2 class="section-title">Artículos Populares</h2>
+                    <p class="section-description">Los favoritos de nuestra comunidad esta semana</p>
+                </div>
+                
+                <div class="trending-grid">
+                    <article class="trending-card">
+                        <div class="trending-number">1</div>
+                        <div class="trending-image">
+                            <img src="images/trending-pizza.png" alt="Pizza napolitana">
+                        </div>
+                        <div class="trending-content">
+                            <span class="trending-category">Recetas</span>
+                            <h3>Pizza Napolitana Auténtica</h3>
+                            <div class="trending-stats">
+                                <span><i class="fas fa-eye"></i> 15.2k</span>
+                                <span><i class="fas fa-comment"></i> 234</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="trending-card">
+                        <div class="trending-number">2</div>
+                        <div class="trending-image">
+                            <img src="images/trending-ceviche.png" alt="Ceviche peruano">
+                        </div>
+                        <div class="trending-content">
+                            <span class="trending-category">Tradición</span>
+                            <h3>Ceviche Peruano: El Original</h3>
+                            <div class="trending-stats">
+                                <span><i class="fas fa-eye"></i> 12.8k</span>
+                                <span><i class="fas fa-comment"></i> 189</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="trending-card">
+                        <div class="trending-number">3</div>
+                        <div class="trending-image">
+                            <img src="images/trending-croissant.png" alt="Croissant francés">
+                        </div>
+                        <div class="trending-content">
+                            <span class="trending-category">Técnicas</span>
+                            <h3>Croissant Francés Perfecto</h3>
+                            <div class="trending-stats">
+                                <span><i class="fas fa-eye"></i> 11.5k</span>
+                                <span><i class="fas fa-comment"></i> 156</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="trending-card">
+                        <div class="trending-number">4</div>
+                        <div class="trending-image">
+                            <img src="images/trending-curry.png" alt="Curry tailandés">
+                        </div>
+                        <div class="trending-content">
+                            <span class="trending-category">Internacional</span>
+                            <h3>Curry Tailandés Verde</h3>
+                            <div class="trending-stats">
+                                <span><i class="fas fa-eye"></i> 9.7k</span>
+                                <span><i class="fas fa-comment"></i> 142</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="images/about-chef.jpg" alt="Chef Christian Herencia">
+                        <div class="about-badge">
+                            <span class="badge-number">10+</span>
+                            <span class="badge-text">Años de Experiencia</span>
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <span class="section-subtitle">Sobre mí</span>
+                        <h2 class="section-title">Christian Herencia</h2>
+                        <h3 class="about-subtitle">Food Blogger & Creador de Contenido</h3>
+                        <p>Bienvenidos a Sabor & Tradición. Soy Christian, un apasionado de la gastronomía mundial con más de 10 años explorando cocinas, ingredientes y tradiciones culinarias.</p>
+                        <p>Mi misión es compartir contigo los secretos de los platos más emblemáticos, las historias detrás de cada ingrediente y las técnicas que hacen única a cada cultura gastronómica.</p>
+                        <p>A través de mi canal de YouTube y este blog, te invito a un viaje culinario inolvidable.</p>
+                        <div class="about-stats">
+                            <div class="stat">
+                                <span class="stat-number">500K+</span>
+                                <span class="stat-label">Suscriptores YouTube</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">1M+</span>
+                                <span class="stat-label">Lectores Mensuales</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">350+</span>
+                                <span class="stat-label">Recetas Publicadas</span>
+                            </div>
+                        </div>
+                        <div class="about-buttons">
+                            <a href="somos.html" class="btn btn-primary">Conóceme Más</a>
+                            <a href="https://youtube.com" target="_blank" class="btn btn-outline"><i class="fab fa-youtube"></i> Ver Canal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <span class="section-subtitle">Únete a nuestra comunidad</span>
+                        <h2 class="section-title">Suscríbete al Newsletter</h2>
+                        <p>Recibe recetas exclusivas, consejos de cocina y novedades gastronómicas directamente en tu correo. ¡Únete a más de 50,000 foodies!</p>
+                        <ul class="newsletter-benefits">
+                            <li><i class="fas fa-check"></i> Recetas semanales exclusivas</li>
+                            <li><i class="fas fa-check"></i> Tips y técnicas profesionales</li>
+                            <li><i class="fas fa-check"></i> Acceso anticipado a nuevos videos</li>
+                            <li><i class="fas fa-check"></i> Descuentos en productos recomendados</li>
+                        </ul>
+                    </div>
+                    <div class="newsletter-form-wrapper">
+                        <form class="newsletter-form" id="newsletterForm">
+                            <div class="form-group">
+                                <label for="newsletterName">Nombre completo</label>
+                                <input type="text" id="newsletterName" name="name" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newsletterEmail">Correo electrónico</label>
+                                <input type="email" id="newsletterEmail" name="email" placeholder="tu@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newsletterInterests">Intereses principales</label>
+                                <select id="newsletterInterests" name="interests">
+                                    <option value="">Selecciona tus intereses</option>
+                                    <option value="recetas">Recetas tradicionales</option>
+                                    <option value="tecnicas">Técnicas de cocina</option>
+                                    <option value="ingredientes">Ingredientes y especias</option>
+                                    <option value="cultura">Cultura gastronómica</option>
+                                    <option value="todos">Todos los temas</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <i class="fas fa-paper-plane"></i> Suscribirse Ahora
+                            </button>
+                            <p class="form-disclaimer">
+                                <i class="fas fa-lock"></i> Tus datos están seguros. No hacemos spam.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Testimonios</span>
+                    <h2 class="section-title">Lo Que Dicen Nuestros Lectores</h2>
+                    <p class="section-description">Opiniones de nuestra comunidad de foodies</p>
+                </div>
+                
+                <div class="testimonials-slider" id="testimonialsSlider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Las recetas de Christian son increíbles. He aprendido técnicas que nunca imaginé y mis platos han mejorado muchísimo. ¡Su canal de YouTube es oro puro!"</p>
+                        <div class="testimonial-author">
+                            <img src="images/testimonial-1.jpg" alt="María González">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">María González</span>
+                                <span class="testimonial-location">Madrid, España</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Como chef aficionado, este blog se ha convertido en mi biblia. La calidad del contenido y la pasión que transmite Christian son contagiosas."</p>
+                        <div class="testimonial-author">
+                            <img src="images/testimonial-2.jpg" alt="Carlos Rodríguez">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Carlos Rodríguez</span>
+                                <span class="testimonial-location">Ciudad de México</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Me encanta cómo explica cada receta con tanto detalle. Las tradiciones que comparte hacen que cocinar sea una experiencia cultural única."</p>
+                        <div class="testimonial-author">
+                            <img src="images/testimonial-3.jpg" alt="Ana Martínez">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Ana Martínez</span>
+                                <span class="testimonial-location">Buenos Aires, Argentina</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-controls">
+                    <button class="testimonial-btn prev" id="testimonialPrev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="testimonial-btn next" id="testimonialNext"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram Feed -->
+        <section class="instagram-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Síguenos</span>
+                    <h2 class="section-title">@SaborYTradicion</h2>
+                    <p class="section-description">Descubre nuestro contenido en Instagram</p>
+                </div>
+                
+                <div class="instagram-grid">
+                    <a href="https://instagram.com" target="_blank" class="instagram-item">
+                        <img src="images/insta-1.jpg" alt="Instagram post">
+                        <div class="instagram-overlay">
+                            <i class="fab fa-instagram"></i>
+                            <span>2.4k</span>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="instagram-item">
+                        <img src="images/insta-2.jpg" alt="Instagram post">
+                        <div class="instagram-overlay">
+                            <i class="fab fa-instagram"></i>
+                            <span>1.8k</span>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="instagram-item">
+                        <img src="images/insta-3.jpg" alt="Instagram post">
+                        <div class="instagram-overlay">
+                            <i class="fab fa-instagram"></i>
+                            <span>3.1k</span>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="instagram-item">
+                        <img src="images/insta-4.jpg" alt="Instagram post">
+                        <div class="instagram-overlay">
+                            <i class="fab fa-instagram"></i>
+                            <span>2.7k</span>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="instagram-item">
+                        <img src="images/insta-5.jpg" alt="Instagram post">
+                        <div class="instagram-overlay">
+                            <i class="fab fa-instagram"></i>
+                            <span>1.9k</span>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="instagram-item">
+                        <img src="images/insta-6.jpg" alt="Instagram post">
+                        <div class="instagram-overlay">
+                            <i class="fab fa-instagram"></i>
+                            <span>4.2k</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="instagram-cta">
+                    <a href="https://instagram.com" target="_blank" class="btn btn-outline">
+                        <i class="fab fa-instagram"></i> Seguir en Instagram
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <span class="logo-icon"><i class="fas fa-utensils"></i></span>
+                            <div class="logo-text">
+                                <span class="logo-main">Sabor & Tradición</span>
+                                <span class="logo-sub">Gastronomía Mundial</span>
+                            </div>
+                        </div>
+                        <p class="footer-description">
+                            Blog gastronómico dedicado a compartir recetas, tradiciones y secretos de la cocina mundial. Únete a nuestra comunidad de foodies.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Enlaces Rápidos</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="somos.html">Somos</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="portafolio.html">Portafolio</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Categorías</h4>
+                        <ul class="footer-links">
+                            <li><a href="blog.html?cat=recetas">Recetas</a></li>
+                            <li><a href="blog.html?cat=ingredientes">Ingredientes</a></li>
+                            <li><a href="blog.html?cat=tradicion">Tradiciones</a></li>
+                            <li><a href="blog.html?cat=tecnicas">Técnicas</a></li>
+                            <li><a href="blog.html?cat=cultura">Cultura</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contacto</h4>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-map-marker-alt"></i> Madrid, España</li>
+                            <li><a href="tel:+34612345678"><i class="fas fa-phone"></i> +34 612 345 678</a></li>
+                            <li><a href="tel:+34687654321"><i class="fas fa-mobile-alt"></i> +34 687 654 321</a></li>
+                            <li><a href="mailto:info@saborytradicion.com"><i class="fas fa-envelope"></i> info@saborytradicion.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        &copy; 2026 Sabor & Tradición. Todos los derechos reservados. | Autor: <a href="https://christian-freelance.us/" target="_blank">Christian Herencia</a>
+                    </p>
+                    <div class="footer-legal">
+                        <a href="privacidad.html">Política de Privacidad</a>
+                        <a href="cookies.html">Política de Cookies</a>
+                        <a href="aviso-legal.html">Aviso Legal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/34612345678" target="_blank" class="whatsapp-btn" aria-label="Contact via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explora nuestro blog gastronómico con recetas, técnicas, ingredientes y tradiciones culinarias de todo el mundo. Artículos actualizados semanalmente.">
+    <meta name="keywords" content="blog comida, recetas, gastronomia, cocina, articulos culinarios, food blog">
+    <meta name="author" content="Christian Herencia">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog | Sabor & Tradición">
+    <meta property="og:description" content="Recetas, técnicas y secretos de la gastronomía mundial">
+    <meta property="og:image" content="images/og-blog.jpg">
+    
+    <title>Blog | Sabor & Tradición - Recetas y Artículos Gastronómicos</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Page Specific Styles -->
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%);
+            padding: 180px 0 80px;
+            text-align: center;
+            color: var(--color-white);
+        }
+        
+        .page-header h1 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        
+        .breadcrumb a {
+            color: var(--color-gray-light);
+            transition: color var(--transition-fast);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--color-primary);
+        }
+        
+        .breadcrumb .separator {
+            color: var(--color-gray);
+        }
+        
+        .blog-section {
+            padding: var(--spacing-xxl) 0;
+            background: var(--color-cream);
+        }
+        
+        .blog-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: var(--spacing-xl);
+        }
+        
+        .blog-filters {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .filter-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-gray);
+        }
+        
+        .view-options {
+            display: flex;
+            gap: var(--spacing-xs);
+        }
+        
+        .view-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-white);
+            border: 2px solid var(--color-light);
+            border-radius: var(--radius-md);
+            color: var(--color-gray);
+            transition: all var(--transition-fast);
+        }
+        
+        .view-btn:hover,
+        .view-btn.active {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+        
+        .category-filter {
+            padding: 0.6rem 1.2rem;
+            background: var(--color-white);
+            border: 2px solid var(--color-light);
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-gray);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .category-filter:hover,
+        .category-filter.active {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .search-header {
+            background: var(--color-white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        
+        .search-header input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--color-light);
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+        }
+        
+        .search-header input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+        
+        .articles-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .article-item {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: var(--spacing-lg);
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+        }
+        
+        .article-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .article-item-image {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .article-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+        
+        .article-item:hover .article-item-image img {
+            transform: scale(1.1);
+        }
+        
+        .article-item-content {
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .article-item-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-sm);
+            width: fit-content;
+        }
+        
+        .article-item-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            transition: color var(--transition-fast);
+        }
+        
+        .article-item:hover .article-item-title {
+            color: var(--color-primary);
+        }
+        
+        .article-item-excerpt {
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-md);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .article-item-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--color-light);
+        }
+        
+        .article-item-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .article-item-author img {
+            width: 35px;
+            height: 35px;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+        }
+        
+        .article-item-author span {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .article-item-stats {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.85rem;
+            color: var(--color-gray);
+        }
+        
+        .article-item-stats span {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        /* Sidebar */
+        .blog-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xl);
+        }
+        
+        .sidebar-widget {
+            background: var(--color-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .sidebar-widget h3 {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--color-primary);
+            display: inline-block;
+        }
+        
+        .search-widget-form {
+            display: flex;
+            gap: var(--spacing-xs);
+        }
+        
+        .search-widget-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--color-light);
+            border-radius: var(--radius-md);
+        }
+        
+        .search-widget-form input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+        
+        .search-widget-form button {
+            padding: 0.75rem 1rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius-md);
+            transition: background var(--transition-fast);
+        }
+        
+        .search-widget-form button:hover {
+            background: var(--color-primary-dark);
+        }
+        
+        .popular-posts {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .popular-post {
+            display: flex;
+            gap: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--color-light);
+        }
+        
+        .popular-post:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .popular-post-image {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .popular-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .popular-post-content h4 {
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-xs);
+            line-height: 1.4;
+        }
+        
+        .popular-post-content h4 a {
+            color: var(--color-dark);
+            transition: color var(--transition-fast);
+        }
+        
+        .popular-post-content h4 a:hover {
+            color: var(--color-primary);
+        }
+        
+        .popular-post-meta {
+            font-size: 0.8rem;
+            color: var(--color-gray);
+        }
+        
+        .categories-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .category-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--color-light);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .category-list-item:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .category-list-item:hover .category-count {
+            background: var(--color-white);
+            color: var(--color-primary);
+        }
+        
+        .category-count {
+            background: var(--color-white);
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+        }
+        
+        .tag {
+            padding: 0.4rem 0.8rem;
+            background: var(--color-light);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            color: var(--color-gray);
+            transition: all var(--transition-fast);
+        }
+        
+        .tag:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .newsletter-widget {
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: var(--color-white);
+        }
+        
+        .newsletter-widget h3 {
+            color: var(--color-white);
+            border-bottom-color: rgba(255,255,255,0.3);
+        }
+        
+        .newsletter-widget p {
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.9;
+        }
+        
+        .newsletter-widget-form input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .newsletter-widget-form button {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--color-dark);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background var(--transition-fast);
+        }
+        
+        .newsletter-widget-form button:hover {
+            background: var(--color-dark-light);
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .pagination-btn {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-white);
+            border: 2px solid var(--color-light);
+            border-radius: var(--radius-md);
+            color: var(--color-gray);
+            font-weight: 600;
+            transition: all var(--transition-fast);
+        }
+        
+        .pagination-btn:hover,
+        .pagination-btn.active {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .pagination-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Grid View */
+        .articles-grid-view {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .article-item.grid {
+            display: block;
+        }
+        
+        .article-item.grid .article-item-image {
+            height: 200px;
+        }
+        
+        .article-item.grid .article-item-content {
+            padding: var(--spacing-md);
+        }
+        
+        @media (max-width: 992px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-sidebar {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .article-item {
+                grid-template-columns: 1fr;
+            }
+            
+            .article-item-image {
+                height: 200px;
+            }
+            
+            .blog-sidebar {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="social-links">
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="contact-info">
+                        <a href="tel:+34612345678"><i class="fas fa-phone"></i> +34 612 345 678</a>
+                        <a href="mailto:info@saborytradicion.com"><i class="fas fa-envelope"></i> info@saborytradicion.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"><i class="fas fa-utensils"></i></span>
+                        <div class="logo-text">
+                            <span class="logo-main">Sabor & Tradición</span>
+                            <span class="logo-sub">Gastronomía Mundial</span>
+                        </div>
+                    </a>
+                    
+                    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html" class="nav-link">Inicio</a></li>
+                        <li><a href="somos.html" class="nav-link">Somos</a></li>
+                        <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                        <li><a href="portafolio.html" class="nav-link">Portafolio</a></li>
+                        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                    </ul>
+                    
+                    <div class="nav-actions">
+                        <div class="search-box">
+                            <input type="text" placeholder="Buscar recetas..." id="searchInput">
+                            <button type="submit" class="search-btn" aria-label="Buscar">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <a href="contacto.html" class="btn btn-primary">Suscríbete</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Blog</h1>
+                <p>Recetas, técnicas y secretos de la gastronomía mundial</p>
+                <div class="breadcrumb">
+                    <a href="index.html">Inicio</a>
+                    <span class="separator">/</span>
+                    <span>Blog</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="blog-section">
+            <div class="container">
+                <div class="blog-container">
+                    <!-- Main Content -->
+                    <div class="blog-main">
+                        <!-- Filters -->
+                        <div class="blog-filters">
+                            <div class="filter-header">
+                                <span class="filter-title">Filtrar por categoría:</span>
+                                <div class="view-options">
+                                    <button class="view-btn active" data-view="list" aria-label="Vista de lista">
+                                        <i class="fas fa-list"></i>
+                                    </button>
+                                    <button class="view-btn" data-view="grid" aria-label="Vista de cuadrícula">
+                                        <i class="fas fa-th-large"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="category-filters">
+                                <button class="category-filter active" data-category="all">Todos</button>
+                                <button class="category-filter" data-category="recetas">Recetas</button>
+                                <button class="category-filter" data-category="ingredientes">Ingredientes</button>
+                                <button class="category-filter" data-category="tradicion">Tradiciones</button>
+                                <button class="category-filter" data-category="tecnicas">Técnicas</button>
+                                <button class="category-filter" data-category="cultura">Cultura</button>
+                                <button class="category-filter" data-category="videos">Videos</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Search Header -->
+                        <div class="search-header">
+                            <i class="fas fa-search" style="color: var(--color-gray);"></i>
+                            <input type="text" placeholder="Buscar en el blog..." id="blogSearch">
+                        </div>
+                        
+                        <!-- Articles List -->
+                        <div class="articles-list" id="articlesList">
+                            <!-- Article 1 -->
+                            <article class="article-item" data-category="recetas">
+                                <div class="article-item-image">
+                                    <img src="images/blog-ramen.jpg" alt="Ramen japonés">
+                                </div>
+                                <div class="article-item-content">
+                                    <span class="article-item-category">Recetas</span>
+                                    <h2 class="article-item-title"><a href="post.html">El Verdadero Ramen Japonés: Guía Completa</a></h2>
+                                    <p class="article-item-excerpt">Descubre los secretos para preparar un ramen auténtico desde el caldo hasta los toppings perfectos. Una receta tradicional que ha pasado de generación en generación.</p>
+                                    <div class="article-item-meta">
+                                        <div class="article-item-author">
+                                            <img src="images/author-christian.jpg" alt="Christian Herencia">
+                                            <span>Christian Herencia</span>
+                                        </div>
+                                        <div class="article-item-stats">
+                                            <span><i class="fas fa-calendar"></i> 12 Mar 2026</span>
+                                            <span><i class="fas fa-clock"></i> 8 min</span>
+                                            <span><i class="fas fa-eye"></i> 2.4k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <!-- Article 2 -->
+                            <article class="article-item" data-category="tradicion">
+                                <div class="article-item-image">
+                                    <img src="images/blog-mole.jpg" alt="Mole poblano">
+                                </div>
+                                <div class="article-item-content">
+                                    <span class="article-item-category">Tradiciones</span>
+                                    <h2 class="article-item-title"><a href="post.html">Mole Poblano: La Receta Ancestral</a></h2>
+                                    <p class="article-item-excerpt">El mole es mucho más que una salsa; es una tradición que une generaciones. Conoce la historia y preparación de este platillo emblemático mexicano.</p>
+                                    <div class="article-item-meta">
+                                        <div class="article-item-author">
+                                            <img src="images/author-christian.jpg" alt="Christian Herencia">
+                                            <span>Christian Herencia</span>
+                                        </div>
+                                        <div class="article-item-stats">
+                                            <span><i class="fas fa-calendar"></i> 10 Mar 2026</span>
+                                            <span><i class="fas fa-clock"></i> 12 min</span>
+                                            <span><i class="fas fa-eye"></i> 1.8k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <!-- Article 3 -->
+                            <article class="article-item" data-category="tecnicas">
+                                <div class="article-item-image">
+                                    <img src="images/blog-pan.jpg" alt="Pan artesanal">
+                                </div>
+                                <div class="article-item-content">
+                                    <span class="article-item-category">Técnicas</span>
+                                    <h2 class="article-item-title"><a href="post.html">Pan Artesanal: Fermentación Perfecta</a></h2>
+                                    <p class="article-item-excerpt">Aprende a hacer pan con masa madre y consigue una miga perfecta. Te enseñamos todas las técnicas para un pan crujiente por fuera y suave por dentro.</p>
+                                    <div class="article-item-meta">
+                                        <div class="article-item-author">
+                                            <img src="images/author-christian.jpg" alt="Christian Herencia">
+                                            <span>Christian Herencia</span>
+                                        </div>
+                                        <div class="article-item-stats">
+                                            <span><i class="fas fa-calendar"></i> 08 Mar 2026</span>
+                                            <span><i class="fas fa-clock"></i> 15 min</span>
+                                            <span><i class="fas fa-eye"></i> 3.2k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <!-- Article 4 -->
+                            <article class="article-item" data-category="ingredientes">
+                                <div class="article-item-image">
+                                    <img src="images/blog-especias.jpg" alt="Especias del mundo">
+                                </div>
+                                <div class="article-item-content">
+                                    <span class="article-item-category">Ingredientes</span>
+                                    <h2 class="article-item-title"><a href="post.html">Guía de Especias: Sabores del Mundo</a></h2>
+                                    <p class="article-item-excerpt">Conoce las especias más utilizadas en la cocina internacional, sus orígenes, propiedades y cómo combinarlas para crear platos extraordinarios.</p>
+                                    <div class="article-item-meta">
+                                        <div class="article-item-author">
+                                            <img src="images/author-christian.jpg" alt="Christian Herencia">
+                                            <span>Christian Herencia</span>
+                                        </div>
+                                        <div class="article-item-stats">
+                                            <span><i class="fas fa-calendar"></i> 05 Mar 2026</span>
+                                            <span><i class="fas fa-clock"></i> 6 min</span>
+                                            <span><i class="fas fa-eye"></i> 1.5k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <!-- Article 5 -->
+                            <article class="article-item" data-category="cultura">
+                                <div class="article-item-image">
+                                    <img src="images/blog-tapas.jpg" alt="Tapas españolas">
+                                </div>
+                                <div class="article-item-content">
+                                    <span class="article-item-category">Cultura</span>
+                                    <h2 class="article-item-title"><a href="post.html">La Cultura de las Tapas Españolas</a></h2>
+                                    <p class="article-item-excerpt">Un viaje por la tradición más castiza de España. Descubre el origen de las tapas y las mejores recetas para montar tu propia ruta gastronómica.</p>
+                                    <div class="article-item-meta">
+                                        <div class="article-item-author">
+                                            <img src="images/author-christian.jpg" alt="Christian Herencia">
+                                            <span>Christian Herencia</span>
+                                        </div>
+                                        <div class="article-item-stats">
+                                            <span><i class="fas fa-calendar"></i> 03 Mar 2026</span>
+                                            <span><i class="fas fa-clock"></i> 10 min</span>
+                                            <span><i class="fas fa-eye"></i> 2.1k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <!-- Article 6 -->
+                            <article class="article-item" data-category="videos">
+                                <div class="article-item-image">
+                                    <img src="images/blog-sushi.jpg" alt="Sushi casero">
+                                </div>
+                                <div class="article-item-content">
+                                    <span class="article-item-category">Videos</span>
+                                    <h2 class="article-item-title"><a href="post.html">Sushi Casero: Tutorial Paso a Paso</a></h2>
+                                    <p class="article-item-excerpt">Aprende a hacer sushi en casa con este tutorial completo en video. Desde el arroz hasta el enrollado, te guiamos en cada paso.</p>
+                                    <div class="article-item-meta">
+                                        <div class="article-item-author">
+                                            <img src="images/author-christian.jpg" alt="Christian Herencia">
+                                            <span>Christian Herencia</span>
+                                        </div>
+                                        <div class="article-item-stats">
+                                            <span><i class="fas fa-calendar"></i> 01 Mar 2026</span>
+                                            <span><i class="fas fa-clock"></i> 20 min</span>
+                                            <span><i class="fas fa-eye"></i> 4.5k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="pagination">
+                            <button class="pagination-btn disabled"><i class="fas fa-chevron-left"></i></button>
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                            <button class="pagination-btn">4</button>
+                            <button class="pagination-btn">5</button>
+                            <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Sidebar -->
+                    <aside class="blog-sidebar">
+                        <!-- Search Widget -->
+                        <div class="sidebar-widget">
+                            <h3>Buscar</h3>
+                            <form class="search-widget-form">
+                                <input type="text" placeholder="Buscar artículos...">
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                            </form>
+                        </div>
+                        
+                        <!-- Popular Posts -->
+                        <div class="sidebar-widget">
+                            <h3>Populares</h3>
+                            <div class="popular-posts">
+                                <div class="popular-post">
+                                    <div class="popular-post-image">
+                                        <img src="images/popular-pizza.jpg" alt="Pizza napolitana">
+                                    </div>
+                                    <div class="popular-post-content">
+                                        <h4><a href="post.html">Pizza Napolitana Auténtica</a></h4>
+                                        <div class="popular-post-meta">
+                                            <span><i class="fas fa-eye"></i> 15.2k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="popular-post">
+                                    <div class="popular-post-image">
+                                        <img src="images/trending-ceviche.png" alt="Ceviche peruano">
+                                    </div>
+                                    <div class="popular-post-content">
+                                        <h4><a href="post.html">Ceviche Peruano: El Original</a></h4>
+                                        <div class="popular-post-meta">
+                                            <span><i class="fas fa-eye"></i> 12.8k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="popular-post">
+                                    <div class="popular-post-image">
+                                        <img src="images/trending-croissant.png" alt="Croissant francés">
+                                    </div>
+                                    <div class="popular-post-content">
+                                        <h4><a href="post.html">Croissant Francés Perfecto</a></h4>
+                                        <div class="popular-post-meta">
+                                            <span><i class="fas fa-eye"></i> 11.5k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="popular-post">
+                                    <div class="popular-post-image">
+                                        <img src="images/trending-curry.png" alt="Curry tailandés">
+                                    </div>
+                                    <div class="popular-post-content">
+                                        <h4><a href="post.html">Curry Tailandés Verde</a></h4>
+                                        <div class="popular-post-meta">
+                                            <span><i class="fas fa-eye"></i> 9.7k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Categories -->
+                        <div class="sidebar-widget">
+                            <h3>Categorías</h3>
+                            <div class="categories-list">
+                                <div class="category-list-item" data-category="recetas">
+                                    <span><i class="fas fa-book-open"></i> Recetas</span>
+                                    <span class="category-count">125</span>
+                                </div>
+                                <div class="category-list-item" data-category="ingredientes">
+                                    <span><i class="fas fa-pepper-hot"></i> Ingredientes</span>
+                                    <span class="category-count">87</span>
+                                </div>
+                                <div class="category-list-item" data-category="tradicion">
+                                    <span><i class="fas fa-landmark"></i> Tradiciones</span>
+                                    <span class="category-count">64</span>
+                                </div>
+                                <div class="category-list-item" data-category="tecnicas">
+                                    <span><i class="fas fa-fire"></i> Técnicas</span>
+                                    <span class="category-count">93</span>
+                                </div>
+                                <div class="category-list-item" data-category="cultura">
+                                    <span><i class="fas fa-globe-americas"></i> Cultura</span>
+                                    <span class="category-count">56</span>
+                                </div>
+                                <div class="category-list-item" data-category="videos">
+                                    <span><i class="fas fa-play-circle"></i> Videos</span>
+                                    <span class="category-count">42</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tags -->
+                        <div class="sidebar-widget">
+                            <h3>Etiquetas</h3>
+                            <div class="tags-cloud">
+                                <a href="#" class="tag">pasta</a>
+                                <a href="#" class="tag">arroz</a>
+                                <a href="#" class="tag">mariscos</a>
+                                <a href="#" class="tag">carne</a>
+                                <a href="#" class="tag">vegetariano</a>
+                                <a href="#" class="tag">postres</a>
+                                <a href="#" class="tag">pan</a>
+                                <a href="#" class="tag">salsas</a>
+                                <a href="#" class="tag">asiatica</a>
+                                <a href="#" class="tag">mediterranea</a>
+                                <a href="#" class="tag">mexicana</a>
+                                <a href="#" class="tag">italiana</a>
+                                <a href="#" class="tag">japonesa</a>
+                                <a href="#" class="tag">española</a>
+                                <a href="#" class="tag">francesa</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Newsletter Widget -->
+                        <div class="sidebar-widget newsletter-widget">
+                            <h3>Newsletter</h3>
+                            <p>Recibe recetas exclusivas cada semana</p>
+                            <form class="newsletter-widget-form" id="subscriptionForm">
+                                <input type="email" placeholder="Tu correo electrónico" required>
+                                <button type="submit">Suscribirme</button>
+                            </form>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <span class="logo-icon"><i class="fas fa-utensils"></i></span>
+                            <div class="logo-text">
+                                <span class="logo-main">Sabor & Tradición</span>
+                                <span class="logo-sub">Gastronomía Mundial</span>
+                            </div>
+                        </div>
+                        <p class="footer-description">
+                            Blog gastronómico dedicado a compartir recetas, tradiciones y secretos de la cocina mundial. Únete a nuestra comunidad de foodies.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Enlaces Rápidos</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="somos.html">Somos</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="portafolio.html">Portafolio</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Categorías</h4>
+                        <ul class="footer-links">
+                            <li><a href="blog.html?cat=recetas">Recetas</a></li>
+                            <li><a href="blog.html?cat=ingredientes">Ingredientes</a></li>
+                            <li><a href="blog.html?cat=tradicion">Tradiciones</a></li>
+                            <li><a href="blog.html?cat=tecnicas">Técnicas</a></li>
+                            <li><a href="blog.html?cat=cultura">Cultura</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contacto</h4>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-map-marker-alt"></i> Madrid, España</li>
+                            <li><a href="tel:+34612345678"><i class="fas fa-phone"></i> +34 612 345 678</a></li>
+                            <li><a href="tel:+34687654321"><i class="fas fa-mobile-alt"></i> +34 687 654 321</a></li>
+                            <li><a href="mailto:info@saborytradicion.com"><i class="fas fa-envelope"></i> info@saborytradicion.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        &copy; 2026 Sabor & Tradición. Todos los derechos reservados. | Autor: <a href="https://christian-freelance.us/" target="_blank">Christian Herencia</a>
+                    </p>
+                    <div class="footer-legal">
+                        <a href="privacidad.html">Política de Privacidad</a>
+                        <a href="cookies.html">Política de Cookies</a>
+                        <a href="aviso-legal.html">Aviso Legal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/34612345678" target="_blank" class="whatsapp-btn" aria-label="Contact via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Page Specific JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Category Filter
+            const categoryFilters = document.querySelectorAll('.category-filter, .category-list-item');
+            const articleItems = document.querySelectorAll('.article-item');
+            
+            categoryFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    // Remove active class from filter buttons
+                    document.querySelectorAll('.category-filter').forEach(f => f.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const category = this.dataset.category;
+                    
+                    articleItems.forEach(item => {
+                        if (category === 'all' || item.dataset.category === category) {
+                            item.style.display = 'grid';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // View Toggle
+            const viewBtns = document.querySelectorAll('.view-btn');
+            const articlesList = document.getElementById('articlesList');
+            
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    viewBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const view = this.dataset.view;
+                    
+                    if (view === 'grid') {
+                        articlesList.classList.remove('articles-list');
+                        articlesList.classList.add('articles-grid-view');
+                        articleItems.forEach(item => {
+                            item.classList.add('grid');
+                        });
+                    } else {
+                        articlesList.classList.remove('articles-grid-view');
+                        articlesList.classList.add('articles-list');
+                        articleItems.forEach(item => {
+                            item.classList.remove('grid');
+                        });
+                    }
+                });
+            });
+            
+            // Search Functionality
+            const blogSearch = document.getElementById('blogSearch');
+            
+            blogSearch.addEventListener('input', function() {
+                const query = this.value.toLowerCase();
+                
+                articleItems.forEach(item => {
+                    const title = item.querySelector('.article-item-title').textContent.toLowerCase();
+                    const excerpt = item.querySelector('.article-item-excerpt').textContent.toLowerCase();
+                    const category = item.querySelector('.article-item-category').textContent.toLowerCase();
+                    
+                    if (title.includes(query) || excerpt.includes(query) || category.includes(query)) {
+                        item.style.display = 'grid';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

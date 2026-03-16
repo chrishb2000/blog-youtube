@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio de Christian Herencia - Recetas destacadas, videos virales, colaboraciones y fotografía gastronómica profesional.">
+    <meta name="keywords" content="portafolio, recetas destacadas, videos cocina, fotografia gastronómica, colaboraciones chef">
+    <meta name="author" content="Christian Herencia">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Portafolio | Sabor & Tradición">
+    <meta property="og:description" content="Descubre las mejores recetas, videos y colaboraciones">
+    <meta property="og:image" content="images/og-portfolio.jpg">
+    
+    <title>Portafolio | Sabor & Tradición - Recetas y Proyectos Destacados</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Page Specific Styles -->
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%);
+            padding: 180px 0 80px;
+            text-align: center;
+            color: var(--color-white);
+        }
+        
+        .page-header h1 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        
+        .breadcrumb a {
+            color: var(--color-gray-light);
+            transition: color var(--transition-fast);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--color-primary);
+        }
+        
+        .breadcrumb .separator {
+            color: var(--color-gray);
+        }
+        
+        .portfolio-section {
+            padding: var(--spacing-xxl) 0;
+            background: var(--color-cream);
+        }
+        
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .portfolio-filter {
+            padding: 0.75rem 1.5rem;
+            background: var(--color-white);
+            border: 2px solid var(--color-light);
+            border-radius: var(--radius-full);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-gray);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .portfolio-filter:hover,
+        .portfolio-filter.active {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .portfolio-image {
+            height: 280px;
+            overflow: hidden;
+        }
+        
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+        
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.9) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: var(--spacing-lg);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-category {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-sm);
+            width: fit-content;
+        }
+        
+        .portfolio-title {
+            color: var(--color-white);
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .portfolio-description {
+            color: var(--color-gray-light);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--color-white);
+            font-weight: 600;
+            transition: gap var(--transition-fast);
+        }
+        
+        .portfolio-link:hover {
+            gap: var(--spacing-sm);
+        }
+        
+        /* Featured Portfolio */
+        .featured-portfolio {
+            padding: var(--spacing-xxl) 0;
+            background: var(--color-white);
+        }
+        
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+        }
+        
+        .featured-item {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            height: 400px;
+        }
+        
+        .featured-item.large {
+            grid-row: span 2;
+            height: 815px;
+        }
+        
+        .featured-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+        
+        .featured-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .featured-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: var(--spacing-xl);
+        }
+        
+        .featured-badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: var(--color-secondary);
+            color: var(--color-dark);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-sm);
+            width: fit-content;
+        }
+        
+        .featured-title {
+            color: var(--color-white);
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .featured-description {
+            color: var(--color-gray-light);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        /* Stats Section */
+        .portfolio-stats {
+            padding: var(--spacing-xxl) 0;
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%);
+            color: var(--color-white);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-xl);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-icon {
+            font-size: 3rem;
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--color-white);
+            line-height: 1;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        /* Testimonials Carousel */
+        .collaborations-section {
+            padding: var(--spacing-xxl) 0;
+            background: var(--color-cream);
+        }
+        
+        .collaborations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .collaboration-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+        }
+        
+        .collaboration-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .collaboration-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto var(--spacing-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-light);
+            border-radius: var(--radius-full);
+        }
+        
+        .collaboration-logo img {
+            max-width: 70%;
+            max-height: 70%;
+            object-fit: contain;
+        }
+        
+        .collaboration-card h3 {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .collaboration-card p {
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .collaboration-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        /* Video Gallery */
+        .video-gallery-section {
+            padding: var(--spacing-xxl) 0;
+            background: var(--color-white);
+        }
+        
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .video-card {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(196, 69, 54, 0.9);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 1.5rem;
+            transition: all var(--transition-base);
+        }
+        
+        .video-card:hover .video-play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--color-primary);
+        }
+        
+        .video-content {
+            padding: var(--spacing-lg);
+        }
+        
+        .video-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .video-stats {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.85rem;
+            color: var(--color-gray);
+        }
+        
+        .video-stats span {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        /* CTA Section */
+        .portfolio-cta {
+            padding: var(--spacing-xxl) 0;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            text-align: center;
+            color: var(--color-white);
+        }
+        
+        .portfolio-cta h2 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .portfolio-cta p {
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+            opacity: 0.9;
+        }
+        
+        .portfolio-cta .btn {
+            margin: var(--spacing-sm);
+        }
+        
+        @media (max-width: 992px) {
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-item.large {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .portfolio-filter {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="social-links">
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="contact-info">
+                        <a href="tel:+34612345678"><i class="fas fa-phone"></i> +34 612 345 678</a>
+                        <a href="mailto:info@saborytradicion.com"><i class="fas fa-envelope"></i> info@saborytradicion.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"><i class="fas fa-utensils"></i></span>
+                        <div class="logo-text">
+                            <span class="logo-main">Sabor & Tradición</span>
+                            <span class="logo-sub">Gastronomía Mundial</span>
+                        </div>
+                    </a>
+                    
+                    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html" class="nav-link">Inicio</a></li>
+                        <li><a href="somos.html" class="nav-link">Somos</a></li>
+                        <li><a href="blog.html" class="nav-link">Blog</a></li>
+                        <li><a href="portafolio.html" class="nav-link active">Portafolio</a></li>
+                        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                    </ul>
+                    
+                    <div class="nav-actions">
+                        <div class="search-box">
+                            <input type="text" placeholder="Buscar recetas..." id="searchInput">
+                            <button type="submit" class="search-btn" aria-label="Buscar">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <a href="contacto.html" class="btn btn-primary">Suscríbete</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Portafolio</h1>
+                <p>Recetas destacadas, videos y colaboraciones especiales</p>
+                <div class="breadcrumb">
+                    <a href="index.html">Inicio</a>
+                    <span class="separator">/</span>
+                    <span>Portafolio</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Portfolio -->
+        <section class="featured-portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Lo mejor de lo mejor</span>
+                    <h2>Proyectos Destacados</h2>
+                    <p class="section-description">Una selección de mis creaciones más populares y reconocidas</p>
+                </div>
+                
+                <div class="featured-grid">
+                    <div class="featured-item large">
+                        <img src="images/featured-paella.jpg" alt="Paella Valenciana">
+                        <div class="featured-overlay">
+                            <span class="featured-badge">Más Popular</span>
+                            <h3 class="featured-title">La Paella Valenciana Perfecta</h3>
+                            <p class="featured-description">El video que lo cambió todo. 2 millones de vistas y contando. La receta tradicional transmitida por generaciones.</p>
+                            <a href="post.html" class="portfolio-link">Ver Receta <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-item">
+                        <img src="images/featured-sushi.jpg" alt="Sushi Masterclass">
+                        <div class="featured-overlay">
+                            <span class="featured-badge">Video Tutorial</span>
+                            <h3 class="featured-title">Masterclass de Sushi</h3>
+                            <p class="featured-description">Curso completo de 2 horas sobre el arte del sushi japonés.</p>
+                            <a href="post.html" class="portfolio-link">Ver Tutorial <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-item">
+                        <img src="images/featured-libro.jpg" alt="Libro de Cocina">
+                        <div class="featured-overlay">
+                            <span class="featured-badge">Publicación</span>
+                            <h3 class="featured-title">Libro: Sabores del Mundo</h3>
+                            <p class="featured-description">150 recetas de 30 países en mi primer libro de cocina.</p>
+                            <a href="#" class="portfolio-link">Comprar Libro <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Grid -->
+        <section class="portfolio-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Explora mi trabajo</span>
+                    <h2>Galería de Proyectos</h2>
+                    <p class="section-description">Recetas, videos, colaboraciones y más</p>
+                </div>
+                
+                <div class="portfolio-filters">
+                    <button class="portfolio-filter active" data-filter="all">Todos</button>
+                    <button class="portfolio-filter" data-filter="recetas">Recetas</button>
+                    <button class="portfolio-filter" data-filter="videos">Videos</button>
+                    <button class="portfolio-filter" data-filter="colaboraciones">Colaboraciones</button>
+                    <button class="portfolio-filter" data-filter="fotografia">Fotografía</button>
+                </div>
+                
+                <div class="portfolio-grid">
+                    <!-- Portfolio Item 1 -->
+                    <div class="portfolio-item" data-filter="recetas">
+                        <div class="portfolio-image">
+                            <img src="images/blog-ramen.jpg" alt="Ramen Artesanal">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Recetas</span>
+                            <h3 class="portfolio-title">Ramen Artesanal desde Cero</h3>
+                            <p class="portfolio-description">Guía completa para hacer ramen tradicional japonés en casa</p>
+                            <a href="post.html" class="portfolio-link">Ver Proyecto <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 2 -->
+                    <div class="portfolio-item" data-filter="videos">
+                        <div class="portfolio-image">
+                            <img src="images/blog-pan.jpg" alt="Mole Poblano">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Videos</span>
+                            <h3 class="portfolio-title">Mole Poblano: 3 Días de Preparación</h3>
+                            <p class="portfolio-description">Documental del proceso completo de elaboración del mole</p>
+                            <a href="post.html" class="portfolio-link">Ver Video <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 3 -->
+                    <div class="portfolio-item" data-filter="colaboraciones">
+                        <div class="portfolio-image">
+                            <img src="images/portfolio-collab-1.jpg" alt="Colaboración con Restaurante">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Colaboraciones</span>
+                            <h3 class="portfolio-title">Menú Degustación con Estrella Michelin</h3>
+                            <p class="portfolio-description">Colaboración especial con el restaurante DiverXO</p>
+                            <a href="#" class="portfolio-link">Ver Más <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 4 -->
+                    <div class="portfolio-item" data-filter="fotografia">
+                        <div class="portfolio-image">
+                            <img src="images/portfolio-food-photo.jpg" alt="Fotografía Gastronómica">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Fotografía</span>
+                            <h3 class="portfolio-title">Bodegón Mediterráneo</h3>
+                            <p class="portfolio-description">Serie fotográfica de ingredientes mediterráneos</p>
+                            <a href="#" class="portfolio-link">Ver Galería <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 5 -->
+                    <div class="portfolio-item" data-filter="recetas">
+                        <div class="portfolio-image">
+                            <img src="images/trending-croissant.png" alt="Croissant Francés">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Recetas</span>
+                            <h3 class="portfolio-title">Croissant Francés Perfecto</h3>
+                            <p class="portfolio-description">La técnica francesa del laminado explicada paso a paso</p>
+                            <a href="post.html" class="portfolio-link">Ver Receta <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 6 -->
+                    <div class="portfolio-item" data-filter="videos">
+                        <div class="portfolio-image">
+                            <img src="images/portfolio-street-food.jpg" alt="Street Food">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Videos</span>
+                            <h3 class="portfolio-title">Street Food de México</h3>
+                            <p class="portfolio-description">Recorrido por los mejores puestos callejeros de CDMX</p>
+                            <a href="post.html" class="portfolio-link">Ver Video <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 7 -->
+                    <div class="portfolio-item" data-filter="colaboraciones">
+                        <div class="portfolio-image">
+                            <img src="images/portfolio-brand.jpg" alt="Colaboración de Marca">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Colaboraciones</span>
+                            <h3 class="portfolio-title">Colección de Utensilios Premium</h3>
+                            <p class="portfolio-description">Línea de cuchillos profesionales diseñada por mí</p>
+                            <a href="#" class="portfolio-link">Ver Productos <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 8 -->
+                    <div class="portfolio-item" data-filter="fotografia">
+                        <div class="portfolio-image">
+                            <img src="images/testimonial-3.jpg" alt="Emplatado">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Fotografía</span>
+                            <h3 class="portfolio-title">Arte del Emplatado</h3>
+                            <p class="portfolio-description">Técnicas de presentación de alta cocina</p>
+                            <a href="#" class="portfolio-link">Ver Galería <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 9 -->
+                    <div class="portfolio-item" data-filter="recetas">
+                        <div class="portfolio-image">
+                            <img src="images/portfolio-postres.jpg" alt="Postres">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Recetas</span>
+                            <h3 class="portfolio-title">Postres de Autor</h3>
+                            <p class="portfolio-description">Colección de 20 postres originales fusionando técnicas</p>
+                            <a href="post.html" class="portfolio-link">Ver Recetas <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="portfolio-stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="stat-number" data-count="250">250+</div>
+                        <div class="stat-label">Videos Publicados</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="stat-number" data-count="350">350+</div>
+                        <div class="stat-label">Recetas Creadas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="stat-number" data-count="50">50+</div>
+                        <div class="stat-label">Colaboraciones</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="stat-number" data-count="1000">1K+</div>
+                        <div class="stat-label">Fotos Profesionales</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Gallery -->
+        <section class="video-gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Contenido en video</span>
+                    <h2>Videos Más Vistos</h2>
+                    <p class="section-description">Los favoritos de nuestra comunidad en YouTube</p>
+                </div>
+                
+                <div class="video-gallery">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="images/video-thumb-1.jpg" alt="Video Paella">
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <h3 class="video-title">Paella Valenciana Auténtica - Receta Tradicional</h3>
+                            <div class="video-stats">
+                                <span><i class="fas fa-eye"></i> 2.1M</span>
+                                <span><i class="fas fa-thumbs-up"></i> 85K</span>
+                                <span><i class="fas fa-comment"></i> 3.2K</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="images/blog-sushi.jpg" alt="Video Sushi">
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <h3 class="video-title">Curso Completo de Sushi - 2 Horas</h3>
+                            <div class="video-stats">
+                                <span><i class="fas fa-eye"></i> 1.8M</span>
+                                <span><i class="fas fa-thumbs-up"></i> 72K</span>
+                                <span><i class="fas fa-comment"></i> 2.8K</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="images/article-pan.png" alt="Video Pan">
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <h3 class="video-title">Pan de Masa Madre - Guía Definitiva</h3>
+                            <div class="video-stats">
+                                <span><i class="fas fa-eye"></i> 1.5M</span>
+                                <span><i class="fas fa-thumbs-up"></i> 68K</span>
+                                <span><i class="fas fa-comment"></i> 2.1K</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="images/video-thumb-4.jpg" alt="Video Pasta">
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <h3 class="video-title">Pasta Fresca Italiana - 5 Formas Diferentes</h3>
+                            <div class="video-stats">
+                                <span><i class="fas fa-eye"></i> 1.3M</span>
+                                <span><i class="fas fa-thumbs-up"></i> 61K</span>
+                                <span><i class="fas fa-comment"></i> 1.9K</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collaborations -->
+        <section class="collaborations-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Trabajos especiales</span>
+                    <h2>Colaboraciones Destacadas</h2>
+                    <p class="section-description">He trabajado con marcas y restaurantes de primer nivel</p>
+                </div>
+                
+                <div class="collaborations-grid">
+                    <div class="collaboration-card">
+                        <div class="collaboration-logo">
+                            <i class="fas fa-utensils" style="font-size: 3rem; color: var(--color-primary);"></i>
+                        </div>
+                        <h3>Restaurantes Michelin</h3>
+                        <p>Colaboraciones con chefs estrellados para crear menús exclusivos y eventos gastronómicos.</p>
+                        <span class="collaboration-tag">2024-2026</span>
+                    </div>
+                    
+                    <div class="collaboration-card">
+                        <div class="collaboration-logo">
+                            <i class="fas fa-tv" style="font-size: 3rem; color: var(--color-primary);"></i>
+                        </div>
+                        <h3>Programas de TV</h3>
+                        <p>Participación en programas culinarios nacionales e internacionales como chef invitado.</p>
+                        <span class="collaboration-tag">2023-2026</span>
+                    </div>
+                    
+                    <div class="collaboration-card">
+                        <div class="collaboration-logo">
+                            <i class="fas fa-store" style="font-size: 3rem; color: var(--color-primary);"></i>
+                        </div>
+                        <h3>Marcas Premium</h3>
+                        <p>Embajador de marcas de utensilios de cocina y productos gourmet de alta calidad.</p>
+                        <span class="collaboration-tag">2022-2026</span>
+                    </div>
+                    
+                    <div class="collaboration-card">
+                        <div class="collaboration-logo">
+                            <i class="fas fa-graduation-cap" style="font-size: 3rem; color: var(--color-primary);"></i>
+                        </div>
+                        <h3>Escuelas Culinarias</h3>
+                        <p>Clases magistrales y workshops en instituciones culinarias de prestigio mundial.</p>
+                        <span class="collaboration-tag">2021-2026</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="portfolio-cta">
+            <div class="container">
+                <h2>¿Te gusta mi trabajo?</h2>
+                <p>Suscríbete para recibir nuevas recetas, videos exclusivos y acceso anticipado a todos mis proyectos.</p>
+                <div>
+                    <a href="contacto.html" class="btn btn-outline">Suscríbete al Newsletter</a>
+                    <a href="https://youtube.com" target="_blank" class="btn btn-outline"><i class="fab fa-youtube"></i> Suscribirse en YouTube</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <span class="logo-icon"><i class="fas fa-utensils"></i></span>
+                            <div class="logo-text">
+                                <span class="logo-main">Sabor & Tradición</span>
+                                <span class="logo-sub">Gastronomía Mundial</span>
+                            </div>
+                        </div>
+                        <p class="footer-description">
+                            Blog gastronómico dedicado a compartir recetas, tradiciones y secretos de la cocina mundial. Únete a nuestra comunidad de foodies.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Enlaces Rápidos</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="somos.html">Somos</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="portafolio.html">Portafolio</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Categorías</h4>
+                        <ul class="footer-links">
+                            <li><a href="blog.html?cat=recetas">Recetas</a></li>
+                            <li><a href="blog.html?cat=ingredientes">Ingredientes</a></li>
+                            <li><a href="blog.html?cat=tradicion">Tradiciones</a></li>
+                            <li><a href="blog.html?cat=tecnicas">Técnicas</a></li>
+                            <li><a href="blog.html?cat=cultura">Cultura</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contacto</h4>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-map-marker-alt"></i> Madrid, España</li>
+                            <li><a href="tel:+34612345678"><i class="fas fa-phone"></i> +34 612 345 678</a></li>
+                            <li><a href="tel:+34687654321"><i class="fas fa-mobile-alt"></i> +34 687 654 321</a></li>
+                            <li><a href="mailto:info@saborytradicion.com"><i class="fas fa-envelope"></i> info@saborytradicion.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        &copy; 2026 Sabor & Tradición. Todos los derechos reservados. | Autor: <a href="https://christian-freelance.us/" target="_blank">Christian Herencia</a>
+                    </p>
+                    <div class="footer-legal">
+                        <a href="privacidad.html">Política de Privacidad</a>
+                        <a href="cookies.html">Política de Cookies</a>
+                        <a href="aviso-legal.html">Aviso Legal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/34612345678" target="_blank" class="whatsapp-btn" aria-label="Contact via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Page Specific JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Portfolio Filter
+            const portfolioFilters = document.querySelectorAll('.portfolio-filter');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            portfolioFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    portfolioFilters.forEach(f => f.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filterValue = this.dataset.filter;
+                    
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.dataset.filter === filterValue) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Video Card Click
+            const videoCards = document.querySelectorAll('.video-card');
+            
+            videoCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // In a real implementation, this would open a video modal
+                    // or redirect to YouTube
+                    showNotification('Esta funcionalidad abriría el video en YouTube', 'info');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

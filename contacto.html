@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta con Christian Herencia - Formulario de contacto, información de colaboración, preguntas frecuentes y más.">
+    <meta name="keywords" content="contacto, colaboraciones, prensa, eventos, christian herencia, food blogger">
+    <meta name="author" content="Christian Herencia">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contacto | Sabor & Tradición">
+    <meta property="og:description" content="Ponte en contacto para colaboraciones, eventos o cualquier consulta">
+    <meta property="og:image" content="images/og-contact.jpg">
+    
+    <title>Contacto | Sabor & Tradición - Ponte en Contacto</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Page Specific Styles -->
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%);
+            padding: 180px 0 80px;
+            text-align: center;
+            color: var(--color-white);
+        }
+        
+        .page-header h1 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        
+        .breadcrumb a {
+            color: var(--color-gray-light);
+            transition: color var(--transition-fast);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--color-primary);
+        }
+        
+        .breadcrumb .separator {
+            color: var(--color-gray);
+        }
+        
+        .contact-section {
+            padding: var(--spacing-xxl) 0;
+            background: var(--color-cream);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xxl);
+        }
+        
+        .contact-info-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xl);
+        }
+        
+        .contact-intro h2 {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .contact-intro p {
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.9;
+        }
+        
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+        }
+        
+        .contact-card {
+            background: var(--color-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .contact-card-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto var(--spacing-md);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--color-white);
+        }
+        
+        .contact-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .contact-card a,
+        .contact-card span {
+            color: var(--color-gray);
+            font-size: 0.9rem;
+        }
+        
+        .contact-card a:hover {
+            color: var(--color-primary);
+        }
+        
+        .social-contact {
+            background: var(--color-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .social-contact h3 {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .social-contact p {
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .social-links-large {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        .social-link-large {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-light);
+            border-radius: var(--radius-lg);
+            font-size: 1.5rem;
+            color: var(--color-dark);
+            transition: all var(--transition-base);
+        }
+        
+        .social-link-large:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-5px);
+        }
+        
+        .social-link-large.youtube:hover { background: #FF0000; }
+        .social-link-large.instagram:hover { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .social-link-large.facebook:hover { background: #1877F2; }
+        .social-link-large.tiktok:hover { background: #000000; }
+        .social-link-large.twitter:hover { background: #1DA1F2; }
+        
+        /* Contact Form */
+        .contact-form-wrapper {
+            background: var(--color-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .form-header {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .form-header h2 {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .form-header p {
+            color: var(--color-gray);
+        }
+        
+        .contact-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .contact-form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-dark);
+        }
+        
+        .contact-form label .required {
+            color: var(--color-primary);
+        }
+        
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--color-light);
+            border-radius: var(--radius-md);
+            background: var(--color-light);
+            font-size: 0.95rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background: var(--color-white);
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-form .form-actions {
+            margin-top: var(--spacing-lg);
+        }
+        
+        .contact-form .btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+        
+        .form-note {
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: var(--color-light);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            color: var(--color-gray);
+        }
+        
+        .form-note i {
+            color: var(--color-primary);
+            margin-right: var(--spacing-xs);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: var(--spacing-xxl) 0;
+            background: var(--color-white);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .faq-item {
+            background: var(--color-cream);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background var(--transition-fast);
+        }
+        
+        .faq-question:hover {
+            background: var(--color-light);
+        }
+        
+        .faq-question h3 {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        .faq-icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            transition: transform var(--transition-base);
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-base);
+        }
+        
+        .faq-answer-content {
+            padding: 0 var(--spacing-lg) var(--spacing-lg);
+            color: var(--color-gray);
+            line-height: 1.8;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        /* Map Section */
+        .map-section {
+            padding: 0;
+            height: 400px;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Business Info */
+        .business-section {
+            padding: var(--spacing-xxl) 0;
+            background: var(--color-cream);
+        }
+        
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .business-card {
+            background: var(--color-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .business-card h3 {
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .business-card h3 i {
+            color: var(--color-primary);
+        }
+        
+        .business-card ul {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .business-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            color: var(--color-gray);
+        }
+        
+        .business-card li i {
+            color: var(--color-secondary);
+            margin-top: 4px;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links-large {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="social-links">
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="contact-info">
+                        <a href="tel:+34612345678"><i class="fas fa-phone"></i> +34 612 345 678</a>
+                        <a href="mailto:info@saborytradicion.com"><i class="fas fa-envelope"></i> info@saborytradicion.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"><i class="fas fa-utensils"></i></span>
+                        <div class="logo-text">
+                            <span class="logo-main">Sabor & Tradición</span>
+                            <span class="logo-sub">Gastronomía Mundial</span>
+                        </div>
+                    </a>
+                    
+                    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html" class="nav-link">Inicio</a></li>
+                        <li><a href="somos.html" class="nav-link">Somos</a></li>
+                        <li><a href="blog.html" class="nav-link">Blog</a></li>
+                        <li><a href="portafolio.html" class="nav-link">Portafolio</a></li>
+                        <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
+                    </ul>
+                    
+                    <div class="nav-actions">
+                        <div class="search-box">
+                            <input type="text" placeholder="Buscar recetas..." id="searchInput">
+                            <button type="submit" class="search-btn" aria-label="Buscar">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <a href="contacto.html" class="btn btn-primary">Suscríbete</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Contacto</h1>
+                <p>¿Tienes alguna pregunta o propuesta? ¡Me encantaría escucharte!</p>
+                <div class="breadcrumb">
+                    <a href="index.html">Inicio</a>
+                    <span class="separator">/</span>
+                    <span>Contacto</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-container">
+                    <!-- Contact Info -->
+                    <div class="contact-info-wrapper">
+                        <div class="contact-intro">
+                            <span class="section-subtitle">Ponte en contacto</span>
+                            <h2>Hablemos de Comida y Más</h2>
+                            <p>Ya sea que tengas una pregunta sobre una receta, quieras proponer una colaboración o simplemente quieras saludar, estoy aquí para escucharte.</p>
+                            <p>Respondo personalmente a todos los mensajes en un plazo de 24-48 horas laborables.</p>
+                        </div>
+                        
+                        <div class="contact-cards">
+                            <div class="contact-card">
+                                <div class="contact-card-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h3>Email</h3>
+                                <a href="mailto:info@saborytradicion.com">info@saborytradicion.com</a>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-card-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <h3>Teléfono</h3>
+                                <a href="tel:+34612345678">+34 612 345 678</a>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-card-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h3>Móvil / WhatsApp</h3>
+                                <a href="tel:+34687654321">+34 687 654 321</a>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-card-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h3>Ubicación</h3>
+                                <span>Madrid, España</span>
+                            </div>
+                        </div>
+                        
+                        <div class="social-contact">
+                            <h3>Sígueme en Redes Sociales</h3>
+                            <p>Para contenido diario, recetas rápidas y detrás de cámaras:</p>
+                            <div class="social-links-large">
+                                <a href="https://youtube.com" target="_blank" class="social-link-large youtube" aria-label="YouTube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="https://instagram.com" target="_blank" class="social-link-large instagram" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://facebook.com" target="_blank" class="social-link-large facebook" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://tiktok.com" target="_blank" class="social-link-large tiktok" aria-label="TikTok">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="https://twitter.com" target="_blank" class="social-link-large twitter" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="contact-form-wrapper">
+                        <div class="form-header">
+                            <span class="section-subtitle">Envíame un mensaje</span>
+                            <h2>Formulario de Contacto</h2>
+                            <p>Completa el formulario y te responderé lo antes posible</p>
+                        </div>
+                        
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactName">Nombre completo <span class="required">*</span></label>
+                                    <input type="text" id="contactName" name="name" placeholder="Tu nombre" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail">Correo electrónico <span class="required">*</span></label>
+                                    <input type="email" id="contactEmail" name="email" placeholder="tu@email.com" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactPhone">Teléfono</label>
+                                    <input type="tel" id="contactPhone" name="phone" placeholder="+34 600 000 000">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactSubject">Asunto <span class="required">*</span></label>
+                                    <select id="contactSubject" name="subject" required>
+                                        <option value="">Selecciona un asunto</option>
+                                        <option value="consulta">Consulta general</option>
+                                        <option value="colaboracion">Propuesta de colaboración</option>
+                                        <option value="prensa">Prensa / Medios</option>
+                                        <option value="evento">Evento / Catering</option>
+                                        <option value="publicidad">Publicidad / Patrocinio</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactMessage">Mensaje <span class="required">*</span></label>
+                                <textarea id="contactMessage" name="message" placeholder="Cuéntame en qué puedo ayudarte..." required></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                                </button>
+                            </div>
+                            
+                            <div class="form-note">
+                                <i class="fas fa-info-circle"></i>
+                                Al enviar este formulario, aceptas nuestra política de privacidad. Tus datos están seguros y no serán compartidos con terceros.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Info Section -->
+        <section class="business-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Información profesional</span>
+                    <h2>Oportunidades de Negocio</h2>
+                    <p class="section-description">Estoy disponible para diversos proyectos y colaboraciones</p>
+                </div>
+                
+                <div class="business-grid">
+                    <div class="business-card">
+                        <h3><i class="fas fa-handshake"></i> Colaboraciones</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Creación de contenido para marcas</li>
+                            <li><i class="fas fa-check-circle"></i> Desarrollo de recetas exclusivas</li>
+                            <li><i class="fas fa-check-circle"></i> Embajador de marca</li>
+                            <li><i class="fas fa-check-circle"></i> Reseñas de productos</li>
+                            <li><i class="fas fa-check-circle"></i> Contenido para redes sociales</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="business-card">
+                        <h3><i class="fas fa-calendar-alt"></i> Eventos</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Chef a domicilio para eventos privados</li>
+                            <li><i class="fas fa-check-circle"></i> Clases de cocina y talleres</li>
+                            <li><i class="fas fa-check-circle"></i> Conferencias y charlas</li>
+                            <li><i class="fas fa-check-circle"></i> Presentaciones de libros</li>
+                            <li><i class="fas fa-check-circle"></i> Festivales gastronómicos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="business-card">
+                        <h3><i class="fas fa-tv"></i> Medios</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Entrevistas para TV y radio</li>
+                            <li><i class="fas fa-check-circle"></i> Artículos para revistas</li>
+                            <li><i class="fas fa-check-circle"></i> Consultoría para programas culinarios</li>
+                            <li><i class="fas fa-check-circle"></i> Jurado en competiciones</li>
+                            <li><i class="fas fa-check-circle"></i> Contenido para plataformas streaming</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="business-card">
+                        <h3><i class="fas fa-utensils"></i> Restaurantes</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Consultoría de menú</li>
+                            <li><i class="fas fa-check-circle"></i> Desarrollo de conceptos culinarios</li>
+                            <li><i class="fas fa-check-circle"></i> Menús pop-up temporales</li>
+                            <li><i class="fas fa-check-circle"></i> Formación de personal</li>
+                            <li><i class="fas fa-check-circle"></i> Auditoría de calidad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="faq-container">
+                    <div class="section-header">
+                        <span class="section-subtitle">Preguntas frecuentes</span>
+                        <h2>¿Tienes Dudas?</h2>
+                        <p class="section-description">Respuestas a las preguntas más comunes</p>
+                    </div>
+                    
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>¿Cuánto tiempo tardas en responder?</h3>
+                                <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Normalmente respondo todos los correos en un plazo de 24-48 horas laborables. Si tu asunto es urgente, te recomiendo contactarme por WhatsApp para una respuesta más rápida.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>¿Aceptas propuestas de colaboración?</h3>
+                                <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>¡Sí! Estoy abierto a colaboraciones con marcas que compartan mis valores de calidad, tradición y pasión por la gastronomía. Envíame los detalles de tu propuesta y la revisaré personalmente.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>¿Das clases de cocina?</h3>
+                                <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Sí, ofrezco clases de cocina tanto presenciales en Madrid como online. Las clases cubren desde técnicas básicas hasta recetas específicas de diferentes culturas. Consulta la sección de eventos para más información.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>¿Puedo usar tus recetas en mi blog?</h3>
+                                <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Puedes adaptar mis recetas siempre que des el crédito correspondiente con un enlace a mi web. No está permitido copiar el contenido completo de los artículos. Para usos comerciales, por favor contáctame primero.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>¿Haces catering para eventos privados?</h3>
+                                <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Sí, ofrezco servicios de chef a domicilio para eventos especiales en Madrid y alrededores. El servicio incluye diseño de menú, compra de ingredientes y preparación in situ. Solicita un presupuesto personalizado.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>¿Cómo puedo enviarte productos para reseñar?</h3>
+                                <div class="faq-icon"><i class="fas fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Si tienes una marca de productos alimenticios o utensilios de cocina y te gustaría que los reseñe, contáctame primero para discutir los detalles. Solo acepto productos que realmente usaría y recomendaría a mi audiencia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d195056.8198247618!2d-3.786958463492096!3d40.41670469319256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422997800a3c81%3A0xc436dec1618c2269!2sMadrid!5e0!3m2!1ses!2ses!4v1710000000000!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de Madrid"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <span class="logo-icon"><i class="fas fa-utensils"></i></span>
+                            <div class="logo-text">
+                                <span class="logo-main">Sabor & Tradición</span>
+                                <span class="logo-sub">Gastronomía Mundial</span>
+                            </div>
+                        </div>
+                        <p class="footer-description">
+                            Blog gastronómico dedicado a compartir recetas, tradiciones y secretos de la cocina mundial. Únete a nuestra comunidad de foodies.
+                        </p>
+                        <div class="footer-social">
+                            <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Enlaces Rápidos</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="somos.html">Somos</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="portafolio.html">Portafolio</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Categorías</h4>
+                        <ul class="footer-links">
+                            <li><a href="blog.html?cat=recetas">Recetas</a></li>
+                            <li><a href="blog.html?cat=ingredientes">Ingredientes</a></li>
+                            <li><a href="blog.html?cat=tradicion">Tradiciones</a></li>
+                            <li><a href="blog.html?cat=tecnicas">Técnicas</a></li>
+                            <li><a href="blog.html?cat=cultura">Cultura</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contacto</h4>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-map-marker-alt"></i> Madrid, España</li>
+                            <li><a href="tel:+34612345678"><i class="fas fa-phone"></i> +34 612 345 678</a></li>
+                            <li><a href="tel:+34687654321"><i class="fas fa-mobile-alt"></i> +34 687 654 321</a></li>
+                            <li><a href="mailto:info@saborytradicion.com"><i class="fas fa-envelope"></i> info@saborytradicion.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        &copy; 2026 Sabor & Tradición. Todos los derechos reservados. | Autor: <a href="https://christian-freelance.us/" target="_blank">Christian Herencia</a>
+                    </p>
+                    <div class="footer-legal">
+                        <a href="privacidad.html">Política de Privacidad</a>
+                        <a href="cookies.html">Política de Cookies</a>
+                        <a href="aviso-legal.html">Aviso Legal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/34612345678" target="_blank" class="whatsapp-btn" aria-label="Contact via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Page Specific JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', function() {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all items
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    
+                    // Open clicked item if it wasn't active
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+            
+            // Form validation
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+                
+                // Simple validation
+                if (!data.name || !data.email || !data.subject || !data.message) {
+                    showNotification('Por favor completa todos los campos requeridos', 'error');
+                    return;
+                }
+                
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(data.email)) {
+                    showNotification('Por favor ingresa un correo electrónico válido', 'error');
+                    return;
+                }
+                
+                // Simulate form submission
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Mensaje Enviado!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #27ae60 0%, #1e8449 100%)';
+                    
+                    this.reset();
+                    
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.background = '';
+                        submitBtn.disabled = false;
+                    }, 3000);
+                    
+                    showNotification('¡Gracias por tu mensaje! Te responderé pronto.', 'success');
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
